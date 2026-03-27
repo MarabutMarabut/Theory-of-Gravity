@@ -1,6 +1,6 @@
 # Marabūt's Theory of Gravity: The Electron Flow Model (EFM)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19223331.svg)](https://doi.org/10.5281/zenodo.19223331)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19264537.svg)](https://doi.org/10.5281/zenodo.19264537)
 [![Python 3.x](https://img.shields.io/badge/python-3.x-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
