@@ -73,9 +73,11 @@ The complete theoretical framework, derivations, quantum mechanical implications
 
 ## 👥 About the Authors
 
-**Christopher Berry Marabūt** is an Associate Director of Infrastructure/Cloud Architecture and an independent researcher specializing in computational physics and complex systems. A Certified Azure Solution Architect Expert and Agentic AI Business Solutions Architect, he applies advanced programming and simulation techniques to model the universe as a dynamic system of fluid energy flows.
+**Christopher Berry Marabūt** [![ORCID](https://img.shields.io/badge/ORCID-0009--0001--9759--9587-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0001-9759-9587)  
+Is an Associate Director of Infrastructure/Cloud Architecture and an independent researcher specializing in computational physics and complex systems. A Certified Azure Solution Architect Expert and Agentic AI Business Solutions Architect, he applies advanced programming and simulation techniques to model the universe as a dynamic system of fluid energy flows.
 
-**Angelina Lopez Marabūt** is a co-author, strategic partner, and vital collaborator on the theoretical development and structural refinement of the Electron Flow Model. 
+**Angelina Lopez Marabūt** [![ORCID](https://img.shields.io/badge/ORCID-0009--0007--9937--6145-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0007-9937-6145)  
+Is a co-author, strategic partner, and vital collaborator on the theoretical development and structural refinement of the Electron Flow Model. 
 
 *We aim to bridge the gap between plasma physics, superfluid vacuum theory, and classical mechanics—inviting the next generation to explore the "cosmic dance" of electrons.*
 
