@@ -67,7 +67,7 @@ This script will output a 3D vector quiver plot (`marabut_3d_flow.png`) demonstr
 The complete theoretical framework, derivations, quantum mechanical implications (including the resolution of the Energy-Thermal Paradox and Vibronic Coupling), and the full 38-body Computational Atlas are available in our published paper:
 
 **Marabūt, C. B., & Marabūt, A. L. (2026).** *Marabūt's Theory of Gravity: The Push-Pull Mechanics of Vacuum Flux* (v39). 
-[Read the full paper on Zenodo](https://doi.org/10.5281/zenodo.19223331)
+[Read the full paper on Zenodo](https://doi.org/10.5281/zenodo.19264537)
 
 ---
 
