@@ -63,11 +63,17 @@ This script will output a 3D vector quiver plot (`marabut_3d_flow.png`) demonstr
 
 ---
 
-## 📖 The Official Manuscript
+## 📖 The Official Manuscript & LaTeX Source
 
-The complete theoretical framework, derivations, quantum mechanical implications (including the resolution of the Energy-Thermal Paradox and Vibronic Coupling), and the full 38-body Computational Atlas are available in our published paper:
+For full transparency and editorial review, the complete source code and compiled manuscript are included in this repository:
+* **LaTeX Source:** `Marabuts-Theory-of-Gravity.tex`
+* **Compiled PDF:** `Marabuts-Theory-of-Gravity.pdf`
 
-**Marabūt, C. B., & Marabūt, A. L. (2026).** *Marabūt's Theory of Gravity: The Push-Pull Mechanics of Vacuum Flux* (v39). 
+These files contain the complete theoretical framework, derivations, quantum mechanical implications (including the resolution of the Energy-Thermal Paradox and Vibronic Coupling), and the full 38-body Computational Atlas.
+
+For the officially published and archived version, our paper is hosted on CERN's Zenodo:
+
+**Marabūt, C. B., & Marabūt, A. L. (2026).** *Marabūt's Theory of Gravity: The Push-Pull Mechanics of Vacuum Flux* (v39).
 [Read the full paper on Zenodo](https://doi.org/10.5281/zenodo.19264537)
 
 ---
