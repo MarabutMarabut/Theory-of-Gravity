@@ -89,6 +89,6 @@ Is an independent researcher specializing in technical communication and English
 
 -----
 
-*\`\`Gravity is not merely curved space, but a dynamic, fluid circuit.''*
+*"Gravity is not merely curved space, but a dynamic, fluid circuit."*
 
 -----
