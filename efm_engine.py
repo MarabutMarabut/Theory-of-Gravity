@@ -1,8 +1,11 @@
 # Note: For full solar-system fits, adjust the Ambient Multiplier 
 # and tau_T per body phase state (e.g., tau_T = f(T_core))
 #
-# For the complete 38-body interactive 3D Volumetric Profiler, 
-# visit the EFM GitHub Repository: 
+# For the complete 64-body interactive 3D Volumetric Profiler (v40), 
+# run the live simulation in your browser at: 
+# https://marabutmarabut.github.io/Theory-of-Gravity/
+#
+# Source code available at:
 # https://github.com/MarabutMarabut/Theory-of-Gravity/
 
 import numpy as np
@@ -11,7 +14,7 @@ from mpl_toolkits.mplot3d import Axes3D
 
 # --- EFM Core Parameters ---
 G = 6.67430e-11   # Gravitational Constant
-alpha = 4.183     # EFM Geometric Integration Factor (~4*pi/3)
+alpha = 4.183     # EFM Geometric Integration Factor (~4*pi/3 ~= 4.1888, used here as 4.183 for table consistency)
 rho_eff = 5515.0  # Effective Density (e.g., Earth)
 tau_T = 0.98      # Thermodynamic Impedance (Rocky Body)
 omega = 0.0       # Rotational Velocity (Set >0 for Gas Giants)
@@ -22,14 +25,14 @@ def marabut_gravity_field(x, y, z):
   r[r == 0] = 1e-9 
 
   # 1. THE INTAKE (Local Volumetric Engine)
-  intake_force = (alpha * G) * rho_eff * r * tau_T * D_ref_mult
+  intake_force = (alpha * G) * rho_eff * r * tau_T
 
-  # 2. THE RESISTANCE (Centrifugal offset for fluid Gas Giants only)
+  # 2. THE RESISTANCE (Centrifugal Offset)
   v_rot = omega * r
   resistance_force = (v_rot**2) / r
 
-  # 3. NET ACCELERATION
-  g_net = intake_force - resistance_force
+  # 3. NET ACCELERATION (Unified Master Equation)
+  g_net = (intake_force - resistance_force) * D_ref_mult
 
   # 4. VECTOR MAPPING (Inward Hydrodynamic Flow)
   u_rad = (-g_net / r) * x
