@@ -65,8 +65,8 @@ This script will output a 3D vector quiver plot (`marabut_3d_flow.png`) demonstr
 
 For full transparency and editorial review, the complete source code and compiled manuscript are included in this repository:
 
-  * **LaTeX Source:** `Marabuts-Theory-of-Gravity.tex`
-  * **Compiled PDF:** `Marabuts_Theory_of_Gravity_v41.pdf`
+  * **LaTeX Source:** `2026-04-20-v41-Marabuts-Theory-of-Gravity.tex`
+  * **Compiled PDF:** `2026-04-20-v41-Marabuts-Theory-of-Gravity.pdf`
 
 These files contain the complete theoretical framework, derivations, quantum mechanical implications (including the resolution of the Energy-Thermal Paradox and Vibronic Coupling), and the full 64-body Computational Atlas.
 
