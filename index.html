@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EFM Volumetric Profiler v50</title>
+  <title>EFM Volumetric Profiler v62</title>
   <style>
+    :root {
+      --table-font-size: 0.75rem; /* Initial smaller size to fit more columns */
+    }
+
     body { margin: 0; overflow: hidden; background-color: #050505; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: white; user-select: none; }
     
     /* Dynamic Canvas Container for Centering */
@@ -85,7 +89,7 @@
     .btn-close-modal { width: 100%; padding: 10px; background: #333; color: white; border: 1px solid #555; border-radius: 4px; font-weight: bold; cursor: pointer; transition: all 0.2s; text-transform: uppercase; margin-top: 20px; flex-shrink: 0;}
     .btn-close-modal:hover { background: #4DA8DA; color: black; border-color: #4DA8DA; }
 
-    #help-modal { width: 90%; max-width: 680px; overflow-y: auto; display: block;}
+    #help-modal { width: 90%; max-width: 680px; overflow-y: auto; display: block; user-select: text; }
     #help-modal::-webkit-scrollbar { width: 6px; }
     #help-modal::-webkit-scrollbar-track { background: #111; border-radius: 4px;}
     #help-modal::-webkit-scrollbar-thumb { background: #4DA8DA; border-radius: 4px;}
@@ -100,14 +104,29 @@
     #table-container::-webkit-scrollbar { width: 8px; height: 8px; }
     #table-container::-webkit-scrollbar-track { background: #111; border-radius: 4px;}
     #table-container::-webkit-scrollbar-thumb { background: #4DA8DA; border-radius: 4px;}
-    .master-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: right; white-space: nowrap;}
-    .master-table th { background: #222; color: #88ccff; padding: 10px; border-bottom: 2px solid #4DA8DA; position: sticky; top: 0; z-index: 10; text-transform: uppercase; font-size: 0.75rem;}
-    .master-table td { padding: 8px 10px; border-bottom: 1px solid #333; color: #ccc; }
-    .master-table th:nth-child(1), .master-table td:nth-child(1) { text-align: left; position: sticky; left: 0; background: #1a1a1a; z-index: 5;}
-    .master-table th:nth-child(1) { background: #222; z-index: 15; }
-    .master-table th:nth-child(2), .master-table td:nth-child(2) { text-align: left; }
+    
+    .master-table { width: 100%; border-collapse: collapse; font-size: var(--table-font-size); text-align: right; white-space: nowrap;}
+    .master-table th { background: #222; color: #88ccff; padding: 0.8em; border-bottom: 2px solid #4DA8DA; position: sticky; top: 0; z-index: 10; text-transform: uppercase; font-size: 0.9em;}
+    .master-table td { padding: 0.6em 0.8em; border-bottom: 1px solid #333; color: #ccc; }
+    
+    /* Sticky Columns: # and Body */
+    .master-table th:nth-child(1), .master-table td:nth-child(1) { text-align: center; position: sticky; left: 0; background: #1a1a1a; z-index: 5; border-right: 1px solid #333; color: #88ccff; font-weight: bold;}
+    .master-table th:nth-child(2), .master-table td:nth-child(2) { text-align: left; position: sticky; left: 40px; background: #1a1a1a; z-index: 5;}
+    
+    .master-table th:nth-child(1), .master-table th:nth-child(2) { background: #222; z-index: 15; }
+    .master-table td:nth-child(2) { color: #fff; font-weight: bold; }
+    
+    .master-table th:nth-child(3), .master-table td:nth-child(3) { text-align: left; }
+    
     .master-table tr:hover td { background: #333; color: #fff; cursor: pointer; }
-    .master-table tr:hover td:nth-child(1) { background: #333; }
+    .master-table tr:hover td:nth-child(1), .master-table tr:hover td:nth-child(2) { background: #333; }
+    
+    /* Sorting Styles */
+    .master-table th.sortable { cursor: pointer; user-select: none; transition: background 0.2s; white-space: nowrap;}
+    .master-table th.sortable:hover { background: #444; color: #fff; }
+    .master-table th.sortable::after { content: ' \21D5'; font-size: 0.8em; opacity: 0.3; margin-left: 4px; }
+    .master-table th.sortable.sort-asc::after { content: ' \25B2'; opacity: 1; color: #fff; }
+    .master-table th.sortable.sort-desc::after { content: ' \25BC'; opacity: 1; color: #fff; }
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
@@ -122,7 +141,19 @@
   <div id="table-overlay" class="modal-overlay">
     <div id="table-modal" class="modal-box">
       <button id="btn-close-table-x" class="btn-close-x">&times;</button>
-      <h2>Main Data Matrix</h2>
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 10px;">
+        <h2 style="border: none; padding: 0; margin: 0;">Main Data Matrix</h2>
+        <div style="display: flex; gap: 8px; margin-right: 35px;">
+          <button id="btn-zoom-out" class="btn-ui" style="font-size: 1.1rem; padding: 2px 10px;" title="Zoom Out">-</button>
+          <button id="btn-zoom-in" class="btn-ui" style="font-size: 1.1rem; padding: 2px 10px;" title="Zoom In">+</button>
+          <button id="btn-export-csv" class="btn-ui" style="padding: 4px 10px; display: flex; align-items: center; gap: 5px;" title="Export CSV">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            CSV
+          </button>
+        </div>
+      </div>
+
       <div id="table-container"></div>
       <button id="btn-close-table" class="btn-close-modal">Back</button>
     </div>
@@ -131,49 +162,64 @@
   <div id="help-overlay" class="modal-overlay">
     <div id="help-modal" class="modal-box">
       <button id="btn-close-help-x" class="btn-close-x">&times;</button>
-      <h2>EFM Profiler <span class="version-tag" style="color: #4DA8DA;">v50</span> Help</h2>
+      <h2>EFM Profiler <span class="version-tag" style="color: #4DA8DA;">v62</span> Help</h2>
       
       <p class="help-intro">Welcome to the world's first interactive fluid-dynamic gravity engine. While traditional astrophysics relies on static surface observations, this engine actively calculates the push-pull gravitational flux across 9 dynamic vector points—mapping the exact gravitational pressure from the negative core sink straight out to twice the celestial body's radius. We aren't just observing gravity; we are mapping its fluid circuit in real-time.</p>
 
-      <h3>The Unified Three-Formula System</h3>
+      <h3>The Unified Master Equation</h3>
       <div class="help-link-box" style="margin-top: 10px;">
-        <p class="math-title"><strong>1. Primary Gas Giants (High Rotation, Fluid Surface):</strong></p>
-        <p class="help-desc">These massive bodies generate isolated flux boundaries, allowing their localized volumetric engines to be calculated directly. Due to their fluid composition and extreme rotational velocities, a centrifugal offset is required to account for equatorial bulging and structural expansion.</p>
-        <div class="math-row">
-          <span></span>
-          <span class="math-font"><i>g<sub>EFM</sub></i> = [(&alpha;G) &middot; <i>&rho;<sub>eff</sub></i> &middot; <i>R</i> &middot; <i>&tau;</i>(<i>T</i>)] &minus; <span class="fraction"><span class="numerator"><i>v<sub>rot</sub></i><sup>2</sup></span><span><i>R</i></span></span></span>
-          <span class="eq-num">(1)</span>
+        <p class="help-desc">The Electron Flow Model utilizes one single, elegant equation for every body in the universe. This algorithm dynamically adapts to the specific geometric, thermodynamic, and environmental reality of the celestial body.</p>
+        <div class="math-row" style="justify-content: center;">
+          <span class="math-font"><i>g<sub>EFM</sub></i> = <span style="font-size:1.3em; vertical-align:-0.1em;">[</span>(&alpha;G) &middot; <i>&rho;<sub>eff</sub></i> &middot; <i>R</i> &middot; <i>&tau;</i>(<i>T</i>) &minus; <span class="fraction"><span class="numerator"><i>v<sub>rot</sub></i><sup>2</sup></span><span><i>R</i></span></span><span style="font-size:1.3em; vertical-align:-0.1em;">]</span> &middot; &Omega;<sub>shield</sub></span>
         </div>
+        
+        <p class="help-desc" style="margin-top: 15px; margin-bottom: 5px;"><strong>Equation Key:</strong></p>
+        <ul class="help-desc" style="list-style-type: disc; margin-top: 0; padding-bottom: 10px; border-bottom: 1px solid #333;">
+          <li><strong>&alpha;G (Universal Flux Constant):</strong> The baseline geometric vacuum resistance.</li>
+          <li><strong>&rho;<sub>eff</sub> (Effective Density):</strong> The physical density of the material, acting as the structural throttle.</li>
+          <li><strong>R (Volumetric Radius):</strong> The distance from the core to the surface boundary.</li>
+          <li><strong>&tau;(T) (Thermodynamic Impedance):</strong> The structural resistance based on internal material phase states.</li>
+          <li><strong>v<sub>rot</sub><sup>2</sup> / R (Centrifugal Exhaust):</strong> The outward pressure offset caused by the physical rotation of the body pushing back against the inward vacuum flux.</li>
+          <li><strong>&Omega;<sub>shield</sub> (Environmental Superposition Factor):</strong> The dynamic variable that dictates the boundary collision.</li>
+        </ul>
+        
+        <p class="help-desc" style="margin-top: 15px;"><strong>The Environmental Superposition Factor (&Omega;<sub>shield</sub>):</strong><br>For massive, self-shielded primary bodies (like Earth or Jupiter), this locks at <strong>1.000</strong>. For unshielded small bodies and moons, it activates as <strong>(D<sub>ref</sub>)<sup>0.21</sup></strong>, seamlessly scaling the engine output based on the ambient flux density of their orbital environment.</p>
+      </div>
 
-        <p class="math-title"><strong>2. Primary Rocky Planets (Self-Shielded, Solid Surface):</strong></p>
-        <p class="help-desc">These planets possess sufficient volumetric bulk to shield against solar flux stripping, creating their own isolated flux boundary. Their rigid structures and generally slower rotational velocities allow the core thermodynamic engine to be calculated directly without extreme centrifugal offsets.</p>
-        <div class="math-row">
-          <span></span>
-          <span class="math-font"><i>g<sub>EFM</sub></i> = (&alpha;G) &middot; <i>&rho;<sub>eff</sub></i> &middot; <i>R</i> &middot; <i>&tau;</i>(<i>T</i>)</span>
-          <span class="eq-num">(2)</span>
-        </div>
-
-        <p class="math-title"><strong>3. Small Bodies & Moons (Unshielded, Ambient-Dependent):</strong></p>
-        <p class="help-desc">These bodies lack sufficient volumetric bulk to shield against solar flux stripping. Under the Ambient Flux Law, their field generation is entirely dependent on the ambient flux density of their specific orbital environment, necessitating an exponential multiplier based on their distance to a primary reference body or the Sun.</p>
-        <div class="math-row">
-          <span></span>
-          <span class="math-font"><i>g<sub>EFM</sub></i> = <span style="font-size:1.3em; vertical-align:-0.1em;">(</span>[(&alpha;G) &middot; <i>&rho;<sub>eff</sub></i> &middot; <i>R</i> &middot; <i>&tau;</i>(<i>T</i>)] &minus; <span class="fraction"><span class="numerator"><i>v<sub>rot</sub></i><sup>2</sup></span><span><i>R</i></span></span><span style="font-size:1.3em; vertical-align:-0.1em;">)</span> &middot; (<i>D<sub>ref</sub></i>)<sup>0.21</sup></span>
-          <span class="eq-num">(3)</span>
-        </div>
+      <h3>Matrix Header Key</h3>
+      <div class="help-link-box" style="margin-top: 10px;">
+        <ul class="help-desc" style="list-style-type: disc; margin-top: 0; margin-bottom: 0;">
+          <li><strong>D:</strong> <i>D<sub>ref</sub></i> (AU) - The Ambient Flux Multiplier Reference Distance.</li>
+          <li><strong>R<sub>X</sub>:</strong> Prime Vector Radius (Equatorial Length in km).</li>
+          <li><strong>R<sub>Y</sub>:</strong> Lateral Vector Radius (Equatorial Width in km).</li>
+          <li><strong>R<sub>Z</sub>:</strong> Polar Vector Radius (Pole-to-Pole Height in km).</li>
+          <li><strong>&rho;:</strong> <i>&rho;<sub>eff</sub></i> - The Effective Density (kg/m&sup3;).</li>
+          <li><strong>&tau;:</strong> <i>&tau;(T)</i> - Thermodynamic and Structural Impedance.</li>
+          <li><strong>v<sub>rot</sub>:</strong> Equatorial Rotational Velocity (m/s).</li>
+          <li><strong>Dir:</strong> Rotation Direction (Pro = Prograde, Ret = Retrograde, Tum = Tumbling).</li>
+          <li><strong>M10 - M6:</strong> Exterior Mara Vectors (Deep Space Boundary to Approach Acceleration).</li>
+          <li><strong>M5:</strong> The Calculated EFM Surface Gravity (<i>g<sub>EFM</sub></i> in m/s&sup2;).</li>
+          <li><strong>Obs:</strong> NASA's Observed Surface Gravity (m/s&sup2;).</li>
+          <li><strong>&Delta;%:</strong> The Variance Percentage between EFM and NASA observations.</li>
+          <li><strong>Rtg:</strong> Model Accuracy Rating.</li>
+          <li><strong>M4 - M1:</strong> Interior Mara Vectors (Sub-Surface to Near-Core Compression).</li>
+        </ul>
       </div>
 
       <h3>Navigation Controls</h3>
-      <ul>
-        <li><strong>Rotate Camera:</strong> Click and hold the Left Mouse Button (or one finger on mobile), then drag to look around.</li>
-        <li><strong>Zoom In/Out:</strong> Use your Mouse Scroll Wheel (or pinch with two fingers on mobile).</li>
-        <li><strong>Pan Camera:</strong> Click and hold the Right Mouse Button (or two fingers on mobile), then drag to move the camera.</li>
-        <li><strong>Interactive Tooltips:</strong> Hover over any 3D vector point to view its exact position and flux density. The data card will stay pinned until you move your mouse off the card.</li>
-        <li><strong>Main Data Matrix:</strong> Click any row in the Data menu to instantly teleport to that celestial body. Press <code>ESC</code> to close.</li>
-      </ul>
+      <div class="help-link-box" style="margin-top: 10px;">
+        <ul class="help-desc" style="list-style-type: disc; margin-top: 0; margin-bottom: 0;">
+          <li><strong>Rotate Camera:</strong> Click and hold the Left Mouse Button (or one finger on mobile), then drag to look around.</li>
+          <li><strong>Zoom In/Out:</strong> Use your Mouse Scroll Wheel (or pinch with two fingers on mobile).</li>
+          <li><strong>Pan Camera:</strong> Click and hold the Right Mouse Button (or two fingers on mobile), then drag to move the camera.</li>
+          <li><strong>Interactive Tooltips:</strong> Hover over any 3D vector point to view its exact position and flux density. The data card will stay pinned until you move your mouse off the card.</li>
+          <li><strong>Main Data Matrix:</strong> Click any row in the Data menu to instantly teleport to that celestial body. Press <code>ESC</code> to close. Use the + and - buttons to adjust the table view, and Export CSV to save the currently sorted data.</li>
+        </ul>
+      </div>
 
       <h3>Official Project Links</h3>
       <div class="help-link-box">
-        <div class="help-link-row"><strong>Latest Publication:</strong> <a href="https://doi.org/10.5281/zenodo.19264537" target="_blank" class="ext-link">Marabūt's Theory of Gravity (Zenodo)</a></div>
+        <div class="help-link-row"><strong>Latest Publication:</strong> <a href="https://doi.org/10.5281/zenodo.19672868" target="_blank" class="ext-link">Marabūt's Theory of Gravity (Zenodo)</a></div>
         <div class="help-link-row"><strong>Source Code:</strong> <a href="https://github.com/MarabutMarabut/Theory-of-Gravity" target="_blank" class="ext-link">GitHub Repository</a></div>
         <div class="help-link-row"><strong>Live Web App:</strong> <a href="https://marabutmarabut.github.io/Theory-of-Gravity/" target="_blank" class="ext-link">EFM Profiler Website</a></div>
       </div>
@@ -183,7 +229,7 @@
 
   <div id="ui-container">
     <div id="ui-header">
-      <h1>EFM Profiler <span class="version-tag">v50</span></h1>
+      <h1>EFM Profiler <span class="version-tag">v62</span></h1>
       <div class="header-buttons">
         <button id="btn-table-ui" class="btn-ui">Data</button>
         <button id="btn-help-ui" class="btn-ui">Help</button>
@@ -203,9 +249,9 @@
       
       <div class="mara-toggles">
         <h2 id="data-box-title">Statistics</h2>
-        <div id="active-formula-box" style="background: #111; border: 1px solid #333; border-radius: 4px; padding: 10px; margin-bottom: 15px; text-align: center;">
-          <div id="formula-name" style="color: #fff; font-size: 0.85rem; margin-bottom: 10px;"></div>
-          <div id="formula-math" class="math-font" style="margin: 0;"></div>
+        <div id="active-formula-box" style="background: #111; border: 1px solid #333; border-radius: 4px; padding: 10px; margin-bottom: 15px; text-align: center; overflow-x: auto;">
+          <div id="formula-name" style="color: #fff; font-size: 0.85rem; margin-bottom: 10px;">The Unified Master Equation:</div>
+          <div id="formula-math" class="math-font" style="margin: 0; white-space: nowrap; font-size: 1.05rem;"><i>g<sub>EFM</sub></i> = <span style="font-size:1.3em; vertical-align:-0.1em;">[</span>(&alpha;G) &middot; <i>&rho;<sub>eff</sub></i> &middot; <i>R</i> &middot; <i>&tau;</i>(<i>T</i>) &minus; <span class="fraction"><span class="numerator"><i>v<sub>rot</sub></i><sup>2</sup></span><span><i>R</i></span></span><span style="font-size:1.3em; vertical-align:-0.1em;">]</span> &middot; &Omega;<sub>shield</sub></div>
         </div>
 
         <div class="data-panel">
@@ -275,9 +321,9 @@
 
       <div id="axes-legend">
         <strong>Axes Key:</strong><br>
-        <span class="legend-x">Red: MaraX (Prime Vector)</span><br>
-        <span class="legend-y">Green: MaraY (Lateral Vector)</span><br>
-        <span class="legend-z">Blue: MaraZ (Polar Vector)</span><br>
+        <span style="color: #ff4444;">Red: MaraX (Prime Vector)</span><br>
+        <span style="color: #44ff44;">Green: MaraY (Lateral Vector)</span><br>
+        <span style="color: #4444ff;">Blue: MaraZ (Polar Vector)</span><br>
         <hr style="border: 0; border-top: 1px solid #333; margin: 5px 0;">
         <strong>Key Boundary Mara Vector Points:</strong><br>
         <span class="label-m10">Pink Points: M10 Deep Space Boundary</span><br>
@@ -296,6 +342,46 @@
   </div>
 
   <script>
+    let tableFontSize = 0.75;
+    document.documentElement.style.setProperty('--table-font-size', tableFontSize + 'rem');
+
+    document.getElementById('btn-zoom-in').addEventListener('click', () => {
+      tableFontSize += 0.05;
+      document.documentElement.style.setProperty('--table-font-size', tableFontSize + 'rem');
+    });
+
+    document.getElementById('btn-zoom-out').addEventListener('click', () => {
+      tableFontSize -= 0.05;
+      if (tableFontSize < 0.4) tableFontSize = 0.4;
+      document.documentElement.style.setProperty('--table-font-size', tableFontSize + 'rem');
+    });
+
+    document.getElementById('btn-export-csv').addEventListener('click', () => {
+      const headers = [
+        "#", "Body", "Category", "R_X (km)", "R_Y (km)", "R_Z (km)", "rho (kg/m3)", "T_core (K)", "tau", 
+        "v_rot (m/s)", "Dir", "M10 G (m/s2)", "M9 G (m/s2)", "M8 G (m/s2)", "M7 G (m/s2)", "M6 G (m/s2)", 
+        "M5 G (m/s2)", "NASA G (m/s2)", "M4 G (m/s2)", "M3 G (m/s2)", "M2 G (m/s2)", "M1 G (m/s2)"
+      ];
+      let csvContent = headers.join(",") + "\n";
+
+      celestialBodies.forEach((b, index) => {
+        let row = [
+          index + 1, `"${b.name}"`, `"${b.category}"`, b.rx, b.ry, b.rz, b.rho, b.tCore, b.tau, b.vrot, `"${b.dir}"`,
+          b.m10, b.m9, b.m8, b.m7, b.m6, b.m5, `"${b.obs}"`, b.m4, b.m3, b.m2, b.m1
+        ];
+        csvContent += row.join(",") + "\n";
+      });
+
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", "EFM_Data_Matrix_v62.csv");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+
     const formatGVal = (val) => {
       if (typeof val !== 'number') return val || "N/A";
       if (val === 0) return "0.00";
@@ -308,7 +394,6 @@
       "2": "M2 Peak Flux Density", "1": "M1 Near-Core Compression", "0": "M0 Center Core (Negative Sink)"
     };
 
-    // Compact Factory Function to Prevent Code Truncation while retaining all 64 bodies!
     const b = (name, cat, rx, ry, rz, rho, tCore, tau, vrot, dir, obs, g, m10, m9, m8, m7, m6, m5, m4, m3, m2, m1, vSpd, locBnd, orbT, pName, oDist) => ({
       name, category: cat, rx, ry, rz, rho, tCore, tau, vrot, dir, obs, g, m10, m9, m8, m7, m6, m5, m4, m3, m2, m1, visualSpeed: vSpd, localBoundary: locBnd, orbitType: orbT, parentName: pName, orbDist: oDist
     });
@@ -378,6 +463,22 @@
       b("Mrk 501 A","Black Holes",3.0e7,3.0e7,3.0e7,150000,0,1.000,0,"Prograde","N/A","1.26e6",3.14e5,3.88e5,4.91e5,6.41e5,8.73e5,1.26e6,1.07e6,9.05e5,8.38e5,5.86e5,0.005,6.0e7,"Sun","Mrk 501","N/A"),
       b("Mrk 501 B","Black Holes",8.0e6,8.0e6,8.0e6,180000,0,1.000,0,"Prograde","N/A","4.02e5",1.01e5,1.24e5,1.57e5,2.05e5,2.79e5,4.02e5,3.40e5,2.95e5,2.50e5,1.70e5,0.005,1.6e7,"Parent","Mrk 501 A",7.6e7)
     ];
+
+    let currentSortCol = '';
+    let sortAsc = true;
+
+    function getSortValue(obj, key) {
+      let val = obj[key];
+      if (key === 'category' || key === 'name' || key === 'dir' || key === 'orbitType' || key === 'parentName') return val;
+      if (typeof val === 'string') {
+        if (val === 'N/A') return -Infinity;
+        if (val === 'Hyperbolic') return Infinity;
+        if (val.includes("10^{-4}")) return 1e-4;
+        let numStr = val.replace(/[^0-9eE.\-+]/g, '');
+        return parseFloat(numStr) || -Infinity;
+      }
+      return val;
+    }
 
     let currentBody = null;
     const uiContainer = document.getElementById('ui-container');
@@ -449,12 +550,28 @@
     function generateMasterTable() {
       const container = document.getElementById('table-container');
       let html = '<table class="master-table"><thead><tr>';
-      html += '<th>Body</th><th>Category</th><th>R_X (km)</th><th>R_Y (km)</th><th>R_Z (km)</th><th>&rho; (kg/m&sup3;)</th><th>T_core (K)</th><th>&tau;</th><th>v_rot (m/s)</th><th>Dir</th><th style="color:#ff66ff;">M10 G (m/s&sup2;)</th><th>M9 G (m/s&sup2;)</th><th>M8 G (m/s&sup2;)</th><th>M7 G (m/s&sup2;)</th><th>M6 G (m/s&sup2;)</th><th style="color:#ffff00;">M5 G (m/s&sup2;)</th><th style="color:#aaa;">NASA G (m/s&sup2;)</th><th>M4 G (m/s&sup2;)</th><th>M3 G (m/s&sup2;)</th><th>M2 G (m/s&sup2;)</th><th>M1 G (m/s&sup2;)</th>';
+      
+      const cols = [
+        {k:'index', l:'#'}, 
+        {k:'name', l:'Body'}, {k:'category', l:'Category'}, {k:'rx', l:'R_X (km)'}, {k:'ry', l:'R_Y (km)'}, {k:'rz', l:'R_Z (km)'},
+        {k:'rho', l:'&rho; (kg/m&sup3;)'}, {k:'tCore', l:'T_core (K)'}, {k:'tau', l:'&tau;'}, {k:'vrot', l:'v_rot (m/s)'}, {k:'dir', l:'Dir'},
+        {k:'m10', l:'M10 G (m/s&sup2;)', c:'#ff66ff'}, {k:'m9', l:'M9 G (m/s&sup2;)', c:'#88ccff'}, {k:'m8', l:'M8 G (m/s&sup2;)', c:'#88ccff'},
+        {k:'m7', l:'M7 G (m/s&sup2;)', c:'#88ccff'}, {k:'m6', l:'M6 G (m/s&sup2;)', c:'#88ccff'}, {k:'m5', l:'M5 G (m/s&sup2;)', c:'#ffff00'},
+        {k:'obs', l:'NASA G (m/s&sup2;)', c:'#aaa'}, {k:'m4', l:'M4 G (m/s&sup2;)', c:'#88ccff'}, {k:'m3', l:'M3 G (m/s&sup2;)', c:'#88ccff'},
+        {k:'m2', l:'M2 G (m/s&sup2;)', c:'#88ccff'}, {k:'m1', l:'M1 G (m/s&sup2;)', c:'#88ccff'}
+      ];
+
+      cols.forEach(col => {
+        let styleStr = col.c ? `color:${col.c};` : '';
+        let classStr = col.k === 'index' ? '' : `sortable${currentSortCol === col.k ? (sortAsc ? ' sort-asc' : ' sort-desc') : ''}`;
+        html += `<th data-key="${col.k}" class="${classStr}" style="${styleStr}">${col.l}</th>`;
+      });
       html += '</tr></thead><tbody>';
       
-      celestialBodies.forEach(b => {
+      celestialBodies.forEach((b, index) => {
          let obsStr = b.obs !== "N/A" ? b.obs : "N/A";
          html += `<tr data-bodyname="${b.name}">
+           <td style="color:#88ccff; font-weight:bold; text-align:center;">${index + 1}</td>
            <td style="color:#fff; font-weight:bold;">${b.name}</td><td>${b.category}</td>
            <td>${b.rx.toLocaleString()}</td><td>${b.ry.toLocaleString()}</td><td>${b.rz.toLocaleString()}</td>
            <td>${b.rho.toLocaleString()}</td><td>${b.tCore.toLocaleString()}</td><td>${b.tau.toLocaleString(undefined, {minimumFractionDigits: 3})}</td>
@@ -467,7 +584,34 @@
            <td style="color:#88ccff;">${formatGVal(b.m1)}</td>
          </tr>`;
       });
-      html += '</tbody></table>'; container.innerHTML = html;
+      html += '</tbody></table>'; 
+      container.innerHTML = html;
+
+      document.querySelectorAll('.master-table th.sortable').forEach(th => {
+        th.addEventListener('click', () => {
+          let key = th.dataset.key;
+          if (currentSortCol === key) {
+            sortAsc = !sortAsc;
+          } else {
+            currentSortCol = key;
+            sortAsc = true;
+          }
+          
+          celestialBodies.sort((a, b) => {
+            let vA = getSortValue(a, key);
+            let vB = getSortValue(b, key);
+            
+            if (vA < vB) return sortAsc ? -1 : 1;
+            if (vA > vB) return sortAsc ? 1 : -1;
+            
+            if (a.name < b.name) return -1;
+            if (a.name > b.name) return 1;
+            return 0;
+          });
+          
+          generateMasterTable();
+        });
+      });
     }
 
     const scene = new THREE.Scene();
@@ -559,16 +703,6 @@
       if(!currentBody) return;
       document.getElementById('data-box-title').innerText = currentBody.name.toUpperCase() + " STATISTICS";
 
-      let formName = "", formMath = "";
-      if (currentBody.category === "Gas Giants" || currentBody.category === "Ice Giants" || currentBody.category === "Stars") {
-        formName = "1. Primary Gas Giants (High Rotation, Fluid Surface):"; formMath = "<i>g<sub>EFM</sub></i> = [(&alpha;G) &middot; <i>&rho;<sub>eff</sub></i> &middot; <i>R</i> &middot; <i>&tau;</i>(<i>T</i>)] &minus; <span class='fraction'><span class='numerator'><i>v<sub>rot</sub></i><sup>2</sup></span><span><i>R</i></span></span>";
-      } else if (currentBody.category === "Terrestrial Planets" || currentBody.category === "Exoplanets") {
-        formName = "2. Primary Rocky Planets (Self-Shielded, Solid Surface):"; formMath = "<i>g<sub>EFM</sub></i> = (&alpha;G) &middot; <i>&rho;<sub>eff</sub></i> &middot; <i>R</i> &middot; <i>&tau;</i>(<i>T</i>)";
-      } else {
-        formName = "3. Small Bodies & Moons (Unshielded, Ambient-Dependent):"; formMath = "<i>g<sub>EFM</sub></i> = <span style='font-size:1.3em; vertical-align:-0.1em;'>(</span>[(&alpha;G) &middot; <i>&rho;<sub>eff</sub></i> &middot; <i>R</i> &middot; <i>&tau;</i>(<i>T</i>)] &minus; <span class='fraction'><span class='numerator'><i>v<sub>rot</sub></i><sup>2</sup></span><span><i>R</i></span></span><span style='font-size:1.3em; vertical-align:-0.1em;'>)</span> &middot; (<i>D<sub>ref</sub></i>)<sup>0.21</sup>";
-      }
-      document.getElementById('formula-name').innerHTML = formName; document.getElementById('formula-math').innerHTML = formMath;
-
       document.getElementById('val-rx').innerText = currentBody.rx.toLocaleString() + " km";
       document.getElementById('val-ry').innerText = currentBody.ry.toLocaleString() + " km";
       document.getElementById('val-rz').innerText = currentBody.rz.toLocaleString() + " km";
@@ -633,7 +767,7 @@
       levelCheckboxes.forEach(cb => { if (!cb.checked) { cb.checked = true; cb.dispatchEvent(new Event('change')); } });
 
       categorySelector.value = "Terrestrial Planets"; populateBodyDropdown(); bodySelector.value = "Earth"; currentBody = celestialBodies.find(b => b.name === "Earth"); updateSimulation();
-      camera.position.set(0, 3, 15); controls.target.set(0,0,0); controls.update();
+      camera.position.set(0, 3, 28); controls.target.set(0,0,0); controls.update();
     });
 
     const raycaster = new THREE.Raycaster(); 
@@ -725,7 +859,7 @@
     window.addEventListener('resize', resize3D);
 
     generateMasterTable(); categorySelector.value = "Terrestrial Planets"; populateBodyDropdown(); bodySelector.value = "Earth"; currentBody = celestialBodies.find(b => b.name === "Earth");
-    updateSimulation(); resize3D(); camera.position.set(0, 3, 15); controls.target.set(0,0,0); controls.update(); animate();
+    updateSimulation(); resize3D(); camera.position.set(0, 3, 28); controls.target.set(0,0,0); controls.update(); animate();
   </script>
 </body>
 </html>
