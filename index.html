@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EFM Volumetric Profiler v67</title>
+  <title>EFM Volumetric Profiler v68</title>
   <style>
     :root {
-      --table-font-size: 0.75rem; /* Initial smaller size to fit more columns */
+      --table-font-size: 0.75rem;
     }
 
     body { margin: 0; overflow: hidden; background-color: #050505; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: white; user-select: none; }
@@ -194,7 +194,7 @@
       <button id="btn-close-help-x" class="btn-close-x">&times;</button>
       
       <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 15px;">
-        <h2 style="border: none; padding: 0; margin: 0;">EFM Profiler <span class="version-tag" style="color: #4DA8DA;">v67</span> Help</h2>
+        <h2 style="border: none; padding: 0; margin: 0;">EFM Profiler <span class="version-tag" style="color: #4DA8DA;">v68</span> Help</h2>
         <button id="btn-about-ui" class="btn-ui" style="margin-right: 35px; padding: 4px 10px;">About</button>
       </div>
       
@@ -262,13 +262,13 @@
       <div style="color: #ccc; font-size: 0.9rem; line-height: 1.5;">
         <h3 style="color: #4DA8DA; margin-bottom: 5px; border-bottom: 1px solid #333; padding-bottom: 5px;">Christopher Berry Marabūt</h3>
         <p style="margin-top: 5px;"><strong>Independent Researcher & Principal Architect</strong><br>
-        Christopher is a senior technology professional with approximately 30 years of experience in enterprise architecture and automation. He is the primary author of <em>Marabūt's Theory of Gravity</em> and the developer of the Electron Flow Model (EFM) and its accompanying fluid-dynamic simulations.</p>
+        Christopher (alias "Sage" / "7Q") is a senior technology professional with approximately 30 years of experience in enterprise architecture and automation. He is the primary author of <em>Marabūt's Theory of Gravity</em> and the developer of the Electron Flow Model (EFM) and its accompanying fluid-dynamic simulations.</p>
         <p><strong>ORCID:</strong> <a href="https://orcid.org/0009-0001-9759-9587" target="_blank" class="ext-link">0009-0001-9759-9587</a><br>
         <strong>Contact:</strong> <a href="mailto:chris.marabut@nestlink.com" class="ext-link">chris.marabut@nestlink.com</a></p>
         
         <h3 style="color: #4DA8DA; margin-bottom: 5px; margin-top: 20px; border-bottom: 1px solid #333; padding-bottom: 5px;">Angelina Lopez Marabūt</h3>
         <p style="margin-top: 5px;"><strong>Independent Researcher & Co-Author</strong><br>
-        Angelina is an independent researcher and collaborative scientific partner. She is a vital co-author of the EFM manuscript, contributing deeply to the theoretical refinement and musical projects associated with their joint works.</p>
+        Angelina is an independent researcher, collaborative scientific partner, and Christopher's Twin Flame. She is a vital co-author of the EFM manuscript, contributing deeply to the theoretical refinement and musical projects associated with their joint works.</p>
         <p><strong>ORCID:</strong> <a href="https://orcid.org/0009-0007-9937-6145" target="_blank" class="ext-link">0009-0007-9937-6145</a><br>
         <strong>Contact:</strong> <a href="mailto:angelina.marabut@nestlink.com" class="ext-link">angelina.marabut@nestlink.com</a></p>
 
@@ -287,7 +287,7 @@
 
   <div id="ui-container">
     <div id="ui-header">
-      <h1>EFM Profiler <span class="version-tag">v67</span></h1>
+      <h1>EFM Profiler <span class="version-tag">v68</span></h1>
       <div class="header-buttons">
         <button id="btn-table-ui" class="btn-ui">Data</button>
         <button id="btn-help-ui" class="btn-ui">Help</button>
@@ -453,7 +453,7 @@
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.setAttribute("href", url);
-      link.setAttribute("download", "EFM_Data_Matrix_v67.csv");
+      link.setAttribute("download", "EFM_Data_Matrix_v68.csv");
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -572,7 +572,6 @@
     const uiContainer = document.getElementById('ui-container');
     const hideBtn = document.getElementById('btn-toggle-ui');
     const helpBtn = document.getElementById('btn-help-ui');
-    const aboutBtn = document.getElementById('btn-about-ui');
     const tableBtn = document.getElementById('btn-table-ui');
     const hamburgerBtn = document.getElementById('hamburger-menu');
     
@@ -580,6 +579,7 @@
     const btnCloseHelpX = document.getElementById('btn-close-help-x');
     const btnCloseHelp = document.getElementById('btn-close-help');
 
+    const aboutBtn = document.getElementById('btn-about-ui');
     const aboutOverlay = document.getElementById('about-overlay');
     const btnCloseAboutX = document.getElementById('btn-close-about-x');
     const btnCloseAbout = document.getElementById('btn-close-about');
