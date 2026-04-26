@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EFM Volumetric Profiler v68</title>
+  <title>EFM Volumetric Profiler v70</title>
   <style>
     :root {
-      --table-font-size: 0.75rem;
+      --table-font-size: 0.75rem; /* Initial smaller size to fit more columns */
     }
 
     body { margin: 0; overflow: hidden; background-color: #050505; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: white; user-select: none; }
@@ -161,25 +161,26 @@
           <button id="btn-hazard-more-info" class="btn-ui" style="font-size: 0.7rem; padding: 2px 8px;">🧮 Hazard Calculations Info</button>
         </div>
         <ul style="list-style:none; padding:0; margin:0; font-size:0.9rem; color:#ccc;">
-          <li style="margin-bottom:8px;">🚨 <strong style="color:#ff0000;">Class 6: CRITICAL HAZARD (Singularity/Black Hole Flow)</strong> - Log Rating: &gt; 6.0 <br><span style="color:#aaa;">ABSOLUTE NO-FLY ZONE. The electron flow is so violently fast here that standard propulsion will fail.</span></li>
-          <li style="margin-bottom:8px;">⚠️ <strong style="color:#ff5555;">Class 5: Extreme Hazard (Degenerate Matter Flow)</strong> - Log Rating: 3.0 to 6.0 <br><span style="color:#aaa;">Extreme hull stress. Only approach with advanced deflection shielding.</span></li>
-          <li style="margin-bottom:8px;">🟠 <strong style="color:#ffaa00;">Class 4: High Hazard (Giant/Dwarf Star Flow)</strong> - Log Rating: 1.5 to 3.0 <br><span style="color:#aaa;">Dangerous gravitational currents. Maintain wide orbital distance.</span></li>
-          <li style="margin-bottom:8px;">🟡 <strong style="color:#ffff00;">Class 3: Moderate Hazard (Terrestrial Flow)</strong> - Log Rating: 0.0 to 1.5 <br><span style="color:#aaa;">Standard planetary flow. Safe for orbital insertion and surface landings.</span></li>
-          <li style="margin-bottom:8px;">🟢 <strong style="color:#44ff44;">Class 2: Low Hazard (Lunar/Dwarf Flow)</strong> - Log Rating: -2.0 to 0.0 <br><span style="color:#aaa;">Minor navigational nudging. Safe.</span></li>
-          <li>🔵 <strong style="color:#4DA8DA;">Class 1: Safe (Micro-Flow)</strong> - Log Rating: &lt; -2.0 <br><span style="color:#aaa;">Negligible vacuum flux. Completely safe for proximity operations and docking.</span></li>
+          <li style="margin-bottom:8px;">💥 <strong style="color:#ff00ff;">MHI Class 7: Terminal Hazard (Binary Crush Zone)</strong><br><span style="color:#aaa;">OVERLAPPING CASCADE SUPERPOSITION. Complete structural annihilation from competing sinks.</span></li>
+          <li style="margin-bottom:8px;">🚨 <strong style="color:#ff0000;">MHI Class 6: Critical Hazard (Singularity Flow)</strong><br><span style="color:#aaa;">ABSOLUTE NO-FLY ZONE. The electron flow is so violently fast here that standard propulsion will fail.</span></li>
+          <li style="margin-bottom:8px;">⚠️ <strong style="color:#ff5555;">MHI Class 5: Extreme Hazard (Degenerate Matter Flow)</strong><br><span style="color:#aaa;">Extreme hull stress. Only approach with advanced deflection shielding.</span></li>
+          <li style="margin-bottom:8px;">🟠 <strong style="color:#ffaa00;">MHI Class 4: High Hazard (Giant/Stellar Flow)</strong><br><span style="color:#aaa;">Dangerous gravitational currents. Maintain wide orbital distance.</span></li>
+          <li style="margin-bottom:8px;">🟡 <strong style="color:#ffff00;">MHI Class 3: Moderate Hazard (Terrestrial Flow)</strong><br><span style="color:#aaa;">Standard planetary flow. Safe for orbital insertion and surface landings.</span></li>
+          <li style="margin-bottom:8px;">🟢 <strong style="color:#44ff44;">MHI Class 2: Low Hazard (Lunar/Dwarf Flow)</strong><br><span style="color:#aaa;">Minor navigational nudging. Standard thrusters can easily overcome the cascade.</span></li>
+          <li>🔵 <strong style="color:#4DA8DA;">MHI Class 1: Safe (Micro-Flow)</strong><br><span style="color:#aaa;">Negligible vacuum flux. Completely safe for proximity operations and docking.</span></li>
         </ul>
         <div id="hazard-calc-details" style="display: none; margin-top: 15px; border-top: 1px solid #444; padding-top: 15px;">
           <h4 style="margin: 0 0 10px 0; color: #88ccff;">⚙️ How is this calculated?</h4>
           <p style="font-size: 0.85rem; color: #ccc; line-height: 1.4; margin-bottom: 8px;">
-            The Hazard Class represents the <strong>Magnitude of Electron Flow</strong>. Because flow speeds vary drastically across the universe—from fractions of a millimeter per second (asteroids) to billions of meters per second (black holes)—we cannot use a standard 1-to-100 rating. Instead, we use a <strong>Base-10 Logarithmic Scale</strong>.
+            The Mara Hazard Index (MHI) represents the <strong>Magnitude of Electron Flow</strong>. Because flow speeds vary drastically across the universe—from fractions of a millimeter per second (asteroids) to billions of meters per second (black holes)—we use a Base-10 magnitude scale.
           </p>
           <ul style="font-size: 0.85rem; color: #ccc; line-height: 1.4; margin: 0 0 10px 20px; padding: 0;">
             <li style="margin-bottom: 5px;"><strong>Step 1: Average Flow Speed:</strong> We calculate the mean gravitational acceleration (m/s&sup2;) across all 10 EFM models (M1 through M10).</li>
-            <li style="margin-bottom: 5px;"><strong>Step 2: Logarithmic Conversion:</strong> We apply <code>Log10(Average_Speed)</code>. This compresses massive numbers into a readable index.</li>
-            <li><strong>Step 3: Hazard Assignment:</strong> The resulting number dictates the class. An increase of +1.0 means the flow is <em>10 times faster</em>!</li>
+            <li style="margin-bottom: 5px;"><strong>Step 2: Magnitude Conversion:</strong> The raw speed is mathematically converted into a magnitude index. An increase of +1 means the flow is <em>10 times faster</em>!</li>
+            <li><strong>Step 3: Hazard Assignment:</strong> The resulting magnitude dictates the MHI Class. A negative flow rate signifies extremely delicate micro-gravity, safely grouped into MHI Class 1.</li>
           </ul>
           <p style="font-size: 0.85rem; color: #aaa; font-style: italic; margin: 0;">
-            💡 <strong>Real-World Connection:</strong> This is the exact same mathematical trick scientists use for the Richter scale (earthquakes), the Decibel scale (sound), and the pH scale (acidity)!
+            💡 <strong>Real-World Connection:</strong> This is the exact same magnitude mathematics scientists use for the Richter scale (earthquakes), the Decibel scale (sound), and the pH scale (acidity)!
           </p>
         </div>
       </div>
@@ -194,7 +195,7 @@
       <button id="btn-close-help-x" class="btn-close-x">&times;</button>
       
       <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 15px;">
-        <h2 style="border: none; padding: 0; margin: 0;">EFM Profiler <span class="version-tag" style="color: #4DA8DA;">v68</span> Help</h2>
+        <h2 style="border: none; padding: 0; margin: 0;">EFM Profiler <span class="version-tag" style="color: #4DA8DA;">v70</span> Help</h2>
         <button id="btn-about-ui" class="btn-ui" style="margin-right: 35px; padding: 4px 10px;">About</button>
       </div>
       
@@ -231,7 +232,7 @@
           <li><strong>&tau;:</strong> <i>&tau;(T)</i> - Thermodynamic and Structural Impedance.</li>
           <li><strong>v<sub>rot</sub>:</strong> Equatorial Rotational Velocity (m/s).</li>
           <li><strong>Dir:</strong> Rotation Direction (Pro = Prograde, Ret = Retrograde, Tum = Tumbling).</li>
-          <li><strong>Hazard Class:</strong> Logarithmic safety index for proximity operations.</li>
+          <li><strong>Hazard Class:</strong> The Mara Hazard Index (MHI) for proximity operations.</li>
           <li><strong>M10 - M6:</strong> Exterior Mara Vectors (Deep Space Boundary to Approach Acceleration).</li>
           <li><strong>M5:</strong> The Calculated EFM Surface Gravity (<i>g<sub>EFM</sub></i> in m/s&sup2;).</li>
           <li><strong>Obs:</strong> NASA's Observed Surface Gravity (m/s&sup2;).</li>
@@ -287,7 +288,7 @@
 
   <div id="ui-container">
     <div id="ui-header">
-      <h1>EFM Profiler <span class="version-tag">v68</span></h1>
+      <h1>EFM Profiler <span class="version-tag">v70</span></h1>
       <div class="header-buttons">
         <button id="btn-table-ui" class="btn-ui">Data</button>
         <button id="btn-help-ui" class="btn-ui">Help</button>
@@ -435,7 +436,7 @@
 
     document.getElementById('btn-export-csv').addEventListener('click', () => {
       const headers = [
-        "#", "Body", "Category", "Hazard Class", "Avg Speed G (m/s2)", "Log Speed G", "R_X (km)", "R_Y (km)", "R_Z (km)", "rho (kg/m3)", "T_core (K)", "tau", 
+        "#", "Body", "Category", "Hazard Class", "Avg Speed G (m/s2)", "R_X (km)", "R_Y (km)", "R_Z (km)", "rho (kg/m3)", "T_core (K)", "tau", 
         "v_rot (m/s)", "Dir", "M10 G (m/s2)", "M9 G (m/s2)", "M8 G (m/s2)", "M7 G (m/s2)", "M6 G (m/s2)", 
         "M5 G (m/s2)", "NASA G (m/s2)", "M4 G (m/s2)", "M3 G (m/s2)", "M2 G (m/s2)", "M1 G (m/s2)"
       ];
@@ -443,7 +444,7 @@
 
       celestialBodies.forEach((b, index) => {
         let row = [
-          index + 1, `"${b.name}"`, `"${b.category}"`, `"${b.hazardClass}"`, b.avgSpeedG, b.logSpeedG, b.rx, b.ry, b.rz, b.rho, b.tCore, b.tau, b.vrot, `"${b.dir}"`,
+          index + 1, `"${b.name}"`, `"${b.category}"`, `"${b.hazardClass}"`, b.avgSpeedG, b.rx, b.ry, b.rz, b.rho, b.tCore, b.tau, b.vrot, `"${b.dir}"`,
           b.m10, b.m9, b.m8, b.m7, b.m6, b.m5, `"${b.obs}"`, b.m4, b.m3, b.m2, b.m1
         ];
         csvContent += row.join(",") + "\n";
@@ -453,7 +454,7 @@
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.setAttribute("href", url);
-      link.setAttribute("download", "EFM_Data_Matrix_v68.csv");
+      link.setAttribute("download", "EFM_Data_Matrix_v70.csv");
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -467,12 +468,13 @@
 
     function getHazardColor(hazardClass) {
       if (!hazardClass) return "#ccc";
-      if (hazardClass.includes("Class 1")) return "#4DA8DA"; // Blue
-      if (hazardClass.includes("Class 2")) return "#44ff44"; // Green
-      if (hazardClass.includes("Class 3")) return "#ffff00"; // Yellow
-      if (hazardClass.includes("Class 4")) return "#ffaa00"; // Orange
-      if (hazardClass.includes("Class 5")) return "#ff5555"; // Red-Orange
-      if (hazardClass.includes("Class 6")) return "#ff0000"; // Red
+      if (hazardClass.includes("MHI Class 1")) return "#4DA8DA"; // Blue
+      if (hazardClass.includes("MHI Class 2")) return "#44ff44"; // Green
+      if (hazardClass.includes("MHI Class 3")) return "#ffff00"; // Yellow
+      if (hazardClass.includes("MHI Class 4")) return "#ffaa00"; // Orange
+      if (hazardClass.includes("MHI Class 5")) return "#ff5555"; // Red-Orange
+      if (hazardClass.includes("MHI Class 6")) return "#ff0000"; // Red
+      if (hazardClass.includes("MHI Class 7")) return "#ff00ff"; // Magenta Crush Zone
       return "#ccc";
     }
 
@@ -482,74 +484,75 @@
       "2": "M2 Peak Flux Density", "1": "M1 Near-Core Compression", "0": "M0 Center Core (Negative Sink)"
     };
 
-    const b = (name, cat, avgSpeedG, logSpeedG, hazardClass, rx, ry, rz, rho, tCore, tau, vrot, dir, obs, g, m10, m9, m8, m7, m6, m5, m4, m3, m2, m1, vSpd, locBnd, orbT, pName, oDist) => ({
-      name, category: cat, avgSpeedG, logSpeedG, hazardClass, rx, ry, rz, rho, tCore, tau, vrot, dir, obs, g, m10, m9, m8, m7, m6, m5, m4, m3, m2, m1, visualSpeed: vSpd, localBoundary: locBnd, orbitType: orbT, parentName: pName, orbDist: oDist
+    const b = (name, cat, avgSpeedG, hazardClass, rx, ry, rz, rho, tCore, tau, vrot, dir, obs, g, m10, m9, m8, m7, m6, m5, m4, m3, m2, m1, vSpd, locBnd, orbT, pName, oDist) => ({
+      name, category: cat, avgSpeedG, hazardClass, rx, ry, rz, rho, tCore, tau, vrot, dir, obs, g, m10, m9, m8, m7, m6, m5, m4, m3, m2, m1, visualSpeed: vSpd, localBoundary: locBnd, orbitType: orbT, parentName: pName, orbDist: oDist
     });
 
     const celestialBodies = [
-      b("Sun", "Stars", 319.2730, 2.5042, "Class 4: High Hazard", 696340,696340,696340,1408,15000000,1,2000,"Prograde","274.00","274.00",68.5,84.57,107.03,139.8,190.28,274,450.08,649.97,728.5,500,0.005,1.2e8,"Sun","Galactic Center","N/A"),
-      b("Mercury", "Terrestrial Planets", 1.9610, 0.2925, "Class 2: Low Hazard", 2439,2439,2439,5427,2000,0.98,3,"Prograde","3.70","3.62",0.91,1.12,1.41,1.85,2.51,3.62,2.51,2.63,2,1.05,0.001,1e6,"Sun","Sun",57900000),
-      b("Venus", "Terrestrial Planets", 5.2730, 0.7221, "Class 3: Moderate Hazard", 6051,6051,6051,5243,5200,0.99,1.8,"Retrograde","8.87","8.77",2.19,2.71,3.43,4.47,6.09,8.77,6.3,7.1,7.44,4.23,-0.001,1.2e7,"Sun","Sun",108200000),
-      b("Earth", "Terrestrial Planets", 5.5160, 0.7416, "Class 3: Moderate Hazard", 6378.1,6378.1,6356.8,5515,6000,0.98,460,"Prograde","9.81","9.61",2.4,2.97,3.75,4.9,6.67,9.61,6.67,5.71,8.1,4.38,0.003,1.5e7,"Sun","Sun",149600000),
-      b("Mars", "Terrestrial Planets", 2.1390, 0.3302, "Class 2: Low Hazard", 3396.2,3396.2,3376.2,3933,1500,0.96,241,"Prograde","3.71","3.57",0.89,1.1,1.39,1.82,2.48,3.57,2.54,3.58,2.6,1.42,0.002,8e6,"Sun","Sun",227900000),
-      b("Jupiter", "Gas Giants", 38.2680, 1.5828, "Class 4: High Hazard", 71492,71492,66854,1326,24000,0.958,12600,"Prograde","24.79","24.79",6.2,7.65,9.68,12.65,17.21,24.79,16.46,44.89,149.63,93.52,0.015,1.8e8,"Sun","Sun",778500000),
-      b("Saturn", "Gas Giants", 21.8150, 1.3388, "Class 3: Moderate Hazard", 60268,60268,54364,687,11700,0.935,9870,"Prograde","10.44","10.44",2.61,3.22,4.08,5.33,7.25,10.44,7.3,31.93,91.24,54.75,0.01,1.5e8,"Sun","Sun",1432000000),
-      b("Uranus", "Ice Giants", 6.9360, 0.8411, "Class 3: Moderate Hazard", 25559,25559,24973,1271,5000,0.966,2590,"Retrograde","8.69","8.69",2.17,2.68,3.39,4.43,6.03,8.69,7.11,12.43,13.96,8.47,-0.003,6e7,"Sun","Sun",2867000000),
-      b("Neptune", "Ice Giants", 8.4020, 0.9244, "Class 3: Moderate Hazard", 24764,24764,24341,1638,7000,0.99,2680,"Prograde","11.15","11.15",2.79,3.44,4.36,5.69,7.74,11.15,9.25,14.45,15.31,9.84,0.003,6e7,"Sun","Sun",4515000000),
-      b("Moon", "Moons", 0.8430, -0.0742, "Class 2: Low Hazard", 1738.1,1738.1,1736,3344,1600,0.995,4.6,"Prograde","1.62","1.61",0.41,0.5,0.63,0.82,1.12,1.61,1.24,0.99,0.71,0.4,0.001,5e6,"Parent","Earth",384400),
-      b("Io", "Moons", 0.9640, -0.0159, "Class 2: Low Hazard", 1830,1819.2,1815.6,2508,1800,0.98,75,"Prograde","1.79","1.77",0.44,0.55,0.69,0.9,1.23,1.77,1.45,1.19,0.9,0.52,0.001,3.6e6,"Parent","Jupiter",421700),
-      b("Europa", "Moons", 0.7280, -0.1379, "Class 2: Low Hazard", 1564.1,1561.3,1556.6,2208,1000,0.95,28,"Prograde","1.31","1.29",0.32,0.4,0.51,0.65,0.89,1.29,1.13,0.96,0.72,0.41,0.001,3.1e6,"Parent","Jupiter",671034),
-      b("Ganymede", "Moons", 0.8540, -0.0685, "Class 2: Low Hazard", 2634,2634,2634,1444,1500,0.94,50,"Prograde","1.43","1.41",0.35,0.44,0.55,0.72,0.97,1.41,1.26,1.2,1.02,0.62,0.001,5.3e6,"Parent","Jupiter",1070400),
-      b("Callisto", "Moons", 0.6810, -0.1669, "Class 2: Low Hazard", 2410.3,2410.3,2410.3,1429,1000,0.9,46,"Prograde","1.24","1.23",0.31,0.38,0.48,0.62,0.85,1.23,1.03,0.88,0.66,0.37,0.001,4.8e6,"Parent","Jupiter",1882700),
-      b("Titan", "Moons", 0.8500, -0.0706, "Class 2: Low Hazard", 2575,2575,2575,1208,1000,0.95,36,"Prograde","1.35","1.33",0.33,0.41,0.52,0.68,0.92,1.33,1.23,1.2,1.16,0.72,0.001,5.2e6,"Parent","Saturn",1221870),
-      b("Enceladus", "Moons", 0.0591, -1.2284, "Class 2: Low Hazard", 256.6,251.4,248.3,1610,400,0.61,12,"Prograde","0.113","0.111",0.03,0.03,0.05,0.06,0.08,0.111,0.1,0.06,0.05,0.02,0.001,5.1e5,"Parent","Saturn",237948),
-      b("Rhea", "Moons", 0.1490, -0.8268, "Class 2: Low Hazard", 763.8,763.8,763.8,1236,400,0.6,10,"Prograde","0.26","0.26",0.06,0.08,0.1,0.13,0.18,0.26,0.23,0.19,0.16,0.1,0.001,1.5e6,"Parent","Saturn",527108),
-      b("Iapetus", "Moons", 0.1176, -0.9296, "Class 2: Low Hazard", 747.4,747.4,712.4,1090,400,0.6,3,"Prograde","0.22","0.216",0.05,0.07,0.09,0.11,0.15,0.216,0.18,0.14,0.11,0.06,0.001,1.5e6,"Parent","Saturn",3560820),
-      b("Dione", "Moons", 0.1270, -0.8962, "Class 2: Low Hazard", 563.6,561.4,559.8,1470,400,0.61,15,"Prograde","0.23","0.23",0.06,0.06,0.08,0.11,0.16,0.23,0.19,0.16,0.14,0.08,0.001,1.1e6,"Parent","Saturn",377396),
-      b("Tethys", "Moons", 0.0807, -1.0931, "Class 2: Low Hazard", 535.6,528.1,525.8,1030,400,0.6,18,"Prograde","0.145","0.147",0.04,0.05,0.06,0.08,0.1,0.147,0.12,0.1,0.08,0.03,0.001,1.1e6,"Parent","Saturn",294619),
-      b("Titania", "Moons", 0.2060, -0.6861, "Class 2: Low Hazard", 788.4,788.4,788.4,1711,400,0.54,14,"Prograde","0.38","0.37",0.09,0.11,0.15,0.19,0.26,0.37,0.32,0.26,0.2,0.11,0.001,1.6e6,"Parent","Uranus",435910),
-      b("Oberon", "Moons", 0.1970, -0.7055, "Class 2: Low Hazard", 761.4,761.4,761.4,1630,400,0.54,13,"Prograde","0.35","0.35",0.09,0.11,0.13,0.19,0.24,0.35,0.3,0.26,0.19,0.11,0.001,1.5e6,"Parent","Uranus",583520),
-      b("Ariel", "Moons", 0.1390, -0.8570, "Class 2: Low Hazard", 581.1,577.9,577.7,1660,400,0.53,14,"Prograde","0.27","0.26",0.07,0.07,0.09,0.13,0.19,0.26,0.21,0.17,0.13,0.07,0.001,1.2e6,"Parent","Uranus",190900),
-      b("Umbriel", "Moons", 0.1080, -0.9666, "Class 2: Low Hazard", 584.7,584.7,584.7,1390,400,0.47,10,"Prograde","0.20","0.20",0.05,0.06,0.08,0.1,0.14,0.2,0.17,0.13,0.09,0.06,0.001,1.2e6,"Parent","Uranus",266000),
-      b("Miranda", "Moons", 0.0426, -1.3706, "Class 2: Low Hazard", 240.4,234.2,232.9,1200,400,0.54,12,"Prograde","0.079","0.079",0.02,0.02,0.03,0.04,0.06,0.079,0.066,0.052,0.038,0.021,0.001,4.8e5,"Parent","Uranus",129390),
-      b("Triton", "Moons", 0.4110, -0.3862, "Class 2: Low Hazard", 1353.4,1353.4,1353.4,2060,400,0.49,17,"Retrograde","0.78","0.78",0.21,0.25,0.31,0.39,0.53,0.78,0.59,0.47,0.37,0.21,-0.001,2.7e6,"Parent","Neptune",354759),
-      b("Ceres", "Dwarf Planets", 0.1560, -0.8069, "Class 2: Low Hazard", 483,483,446,1896,400,0.9,93,"Prograde","0.28","0.28",0.07,0.09,0.11,0.15,0.2,0.28,0.24,0.19,0.14,0.09,0.015,9.7e5,"Sun","Sun",413700000),
-      b("Vesta", "Asteroids", 0.1150, -0.9393, "Class 2: Low Hazard", 286,279,223,3450,400,0.73,89,"Prograde","0.22","0.22",0.06,0.07,0.08,0.11,0.16,0.22,0.17,0.13,0.1,0.05,0.015,5.7e5,"Sun","Sun",353200000),
-      b("Pluto", "Dwarf Planets", 0.3390, -0.4698, "Class 2: Low Hazard", 1188.3,1188.3,1188.3,1854,1000,0.47,13,"Retrograde","0.62","0.63",0.16,0.19,0.24,0.32,0.43,0.63,0.48,0.4,0.34,0.2,-0.001,2.4e6,"Sun","Sun",5906000000),
-      b("Haumea", "Dwarf Planets", 0.2670, -0.5735, "Class 2: Low Hazard", 1050,840,537,1040,400,0.85,2000,"Prograde","0.44","0.44",0.11,0.13,0.18,0.22,0.31,0.44,0.42,0.37,0.31,0.18,0.03,2.1e6,"Sun","Sun",6452000000),
-      b("Makemake", "Dwarf Planets", 0.3020, -0.5200, "Class 2: Low Hazard", 715,715,715,1337,400,0.85,58,"Prograde","0.50","0.50",0.13,0.16,0.2,0.27,0.36,0.5,0.47,0.42,0.33,0.18,0.002,1.4e6,"Sun","Sun",6850000000),
-      b("Eris", "Dwarf Planets", 0.4610, -0.3363, "Class 2: Low Hazard", 1163,1163,1163,2430,400,0.45,11,"Prograde","0.82","0.86",0.22,0.27,0.34,0.44,0.58,0.86,0.71,0.56,0.41,0.22,0.002,2.3e6,"Sun","Sun",10180000000),
-      b("Sedna", "Dwarf Planets", 0.0230, -1.6383, "Class 2: Low Hazard", 497.5,497.5,497.5,2000,400,0.15,9,"Prograde","N/A","0.04",0.01,0.01,0.02,0.02,0.03,0.04,0.04,0.03,0.02,0.01,0.001,1.8e10,"Sun","Sun",76000000000),
-      b("'Oumuamua", "Interstellar Objects", 5.2e-05, -4.2840, "Class 1: Safe", 0.2,0.08,0.065,3500,50,0.9,10,"Tumbling","N/A","1.0e-4",3e-5,3e-5,4e-5,5e-5,7e-5,1e-4,8e-5,6e-5,4e-5,2e-5,0.02,1.8e10,"Sun","Sun","Hyperbolic"),
-      b("L 98-59 d", "Exoplanets", 8.9830, 0.9534, "Class 3: Moderate Hazard", 10066,10066,10066,5540,6000,0.98,250,"Prograde","N/A","15.26",3.82,4.71,5.96,7.79,10.6,15.26,12.34,10.36,12.24,6.75,0.005,2.1e7,"Sun","L 98-59",4200000),
-      b("Comet 67P", "Comets", 5.8e-05, -4.2366, "Class 1: Safe", 2.15,1.6,1.35,533,50,0.45,1,"Prograde","~ 10^{-4}","1.1e-4",3e-5,3e-5,4e-5,6e-5,8e-5,1.1e-4,9e-5,7e-5,5e-5,2e-5,0.02,1.8e10,"Sun","Sun",518000000),
-      b("3I/ATLAS", "Interstellar Objects", 0.000121, -3.9172, "Class 1: Safe", 2.5,2.5,2.5,400,50,0.8,2,"Prograde","N/A","2.2e-4",6e-5,7e-5,9e-5,1.1e-4,1.5e-4,2.2e-4,1.9e-4,1.5e-4,1.1e-4,6e-5,0.015,1.8e10,"Sun","Sun","Hyperbolic"),
-      b("TOI-1338 b", "Exoplanets", 15.5230, 1.1910, "Class 3: Moderate Hazard", 43640,43640,43640,800,10000,1,750,"Prograde","N/A","9.75",2.44,3.01,3.81,4.97,6.77,9.75,8.77,18.27,58.46,38.98,0.005,9e7,"Sun","TOI-1338",69000000),
-      b("EP250702a", "Black Holes", 588.1940, 2.7695, "Class 4: High Hazard", 15000,15000,15000,250000,0,1.000,0,"Prograde","N/A","1047.00",261.75,323.15,408.98,534.18,727.08,1047.00,871.10,703.58,586.32,418.80,0.01,30000,"Sun","Sun","N/A"),
-      b("NGC 1052-DF9", "Galaxies", 1.9680, 0.2940, "Class 2: Low Hazard", 85000,85000,85000,150,0,0.950,0,"Tumbling","N/A","3.38",0.85,1.04,1.32,1.73,2.35,3.38,2.89,2.46,2.28,1.38,0.01,170000,"Sun","Sun","N/A"),
-      b("Crab Pulsar", "Neutron Stars", 9.383e+11, 11.9723, "Class 6: CRITICAL HAZARD", 10,10,10,7.1e17,0,1.000,1.88e6,"Prograde","N/A","1.63e12",4.07e11,5.03e11,6.36e11,8.31e11,1.13e12,1.63e12,1.61e12,1.24e12,8.93e11,5.03e11,0.05,20,"Sun","Sun","N/A"),
-      b("HD 189733 b", "Exoplanets", 33.3450, 1.5230, "Class 4: High Hazard", 81385,81385,81385,1040,0,0.920,2000,"Prograde","N/A","21.69",5.42,6.69,8.47,11.07,15.06,21.69,18.39,37.63,125.42,83.61,0.01,162770,"Sun","HD 189733","N/A"),
-      b("Arrokoth", "Kuiper Belt Objects", 0.000153, -3.8153, "Class 1: Safe", 8.9,8.9,8.9,250,0,0.400,1,"Tumbling","N/A","3e-4",8e-5,9e-5,1e-4,2e-4,2e-4,3e-4,2e-4,2e-4,1e-4,6e-5,0.02,17.8,"Sun","Sun",44.00),
-      b("PSO J318.5", "Rogue Planets", 36.7880, 1.5657, "Class 4: High Hazard", 109000,109000,109000,800,0,0.950,5000,"Prograde","N/A","22.91",5.73,7.07,8.95,11.69,15.91,22.91,20.81,43.36,138.87,92.58,0.01,218000,"Sun","None","N/A"),
-      b("Sgr A*", "Black Holes", 294100, 5.4685, "Class 5: Extreme Hazard", 12.0e6,12.0e6,12.0e6,150000,0,1.000,0,"Prograde","N/A","5.02e5",1.25e5,1.55e5,1.96e5,2.56e5,3.49e5,5.02e5,4.28e5,3.61e5,3.35e5,2.34e5,0.005,2.4e7,"Sun","Milky Way","N/A"),
-      b("Cygnus X-1", "Black Holes", 2.319e+11, 11.3653, "Class 6: CRITICAL HAZARD", 44.0,44.0,44.0,3.5e16,0,1.000,1.5e6,"Prograde","N/A","4.30e11",1.07e11,1.33e11,1.68e11,2.19e11,2.99e11,4.30e11,3.54e11,2.80e11,2.06e11,1.23e11,0.05,88.0,"Sun","Sun","N/A"),
-      b("Bennu", "Asteroids", 1.26e-05, -4.8996, "Class 1: Safe", 0.245,0.245,0.245,1190,0,0.600,0.1,"Tumbling","8e-6","8e-6",2e-6,3e-6,3e-6,4e-6,6e-6,8e-6,4e-5,3e-5,2e-5,1e-5,0.02,0.49,"Sun","Sun",1.12),
-      b("Dimorphos", "Moons", 9e-06, -5.0458, "Class 1: Safe", 0.085,0.085,0.085,2100,0,0.650,0.05,"Tumbling","N/A","3e-6",1e-6,1e-6,1e-6,2e-6,2e-6,3e-6,3e-5,2e-5,2e-5,1e-5,0.02,0.17,"Parent","Didymos",1.18),
-      b("Gliese 436 b", "Exoplanets", 9.3540, 0.9710, "Class 3: Moderate Hazard", 27600,27600,27600,2000,0,0.990,3000,"Prograde","N/A","14.93",3.73,4.61,5.83,7.62,10.37,14.93,13.43,11.44,12.33,9.25,0.01,55200,"Sun","Gliese 436","N/A"),
-      b("Planet Nine", "Ice Giants", 6.1070, 0.7858, "Class 3: Moderate Hazard", 19000,19000,19000,1500,0,0.970,1000,"Prograde","N/A","7.66",1.92,2.37,2.99,3.91,5.32,7.66,7.00,10.92,11.55,7.43,0.005,38000,"Sun","Sun","N/A"),
-      b("TRAPPIST-1e", "Exoplanets", 5.1800, 0.7143, "Class 3: Moderate Hazard", 5800,5800,5800,5600,0,0.980,2,"Prograde","N/A","8.89",2.22,2.74,3.47,4.53,6.17,8.89,6.10,5.77,7.70,4.21,0.005,11600,"Sun","TRAPPIST-1","N/A"),
-      b("PSR J1719", "Exoplanets", 85.2930, 1.9309, "Class 4: High Hazard", 25000,25000,25000,23000,0,0.999,5000,"Prograde","N/A","159.38",39.84,49.19,62.26,81.32,110.68,159.38,133.88,104.70,72.59,39.09,0.01,50000,"Sun","PSR J1719-1438","N/A"),
-      b("TON 618", "Black Holes", 3.285e+09, 9.5165, "Class 6: CRITICAL HAZARD", 1.95e11,1.95e11,1.95e11,100000,0,1.000,0,"Prograde","N/A","5.44e9",1.36e9,1.68e9,2.13e9,2.78e9,3.78e9,5.44e9,4.79e9,4.25e9,3.92e9,2.72e9,0.005,3.9e11,"Sun","Sun","N/A"),
-      b("TOI-5205 b", "Exoplanets", 22.4340, 1.3509, "Class 3: Moderate Hazard", 73600,73600,73600,2921,0,0.958,1000,"Prograde","N/A","25.03",6.26,7.73,9.78,12.77,17.39,25.03,17.18,26.05,63.15,39.00,0.01,147200,"Sun","TOI-5205",0.02),
-      b("HATS-75 b", "Exoplanets", 26.1240, 1.4170, "Class 3: Moderate Hazard", 73337,73337,73337,3111,0,0.957,1100,"Prograde","N/A","28.92",7.23,8.93,11.30,14.76,20.08,28.92,26.12,31.11,68.54,44.25,0.01,146674,"Sun","HATS-75",0.03),
-      b("WASP-193b", "Exoplanets", 6.3590, 0.8034, "Class 3: Moderate Hazard", 107000,107000,107000,59,0,0.910,5000,"Prograde","N/A","1.37",0.34,0.42,0.54,0.70,0.95,1.37,2.17,8.16,21.75,27.19,0.01,214000,"Sun","WASP-193","N/A"),
-      b("LHS 3154 b", "Exoplanets", 7.2170, 0.8584, "Class 3: Moderate Hazard", 24000,24000,24000,2500,0,0.980,1500,"Prograde","N/A","7.35",1.84,2.27,2.87,3.75,5.10,7.35,8.27,10.75,17.91,12.06,0.01,48000,"Sun","LHS 3154",0.03),
-      b("Superatom", "Quantum Scale", 3.997e-10, -9.3983, "Class 1: Safe", 1e-6,1e-6,1e-6,2700,0,1.000,0,"Prograde","N/A","7.54e-10",1.88e-10,2.33e-10,2.94e-10,3.85e-10,5.24e-10,7.54e-10,6.25e-10,4.86e-10,3.35e-10,1.73e-10,0.001,2e-6,"Sun","Lab","N/A"),
-      b("TOI-201 c", "Brown Dwarfs", 229.0550, 2.3599, "Class 4: High Hazard", 70777,70777,70777,18148,0,1.000,12000,"Prograde","N/A","356.59",89.15,110.06,139.29,181.93,247.63,356.59,316.18,296.41,316.18,237.13,0.015,141554,"Sun","TOI-201","N/A"),
-      b("TOI-201 b", "Exoplanets", 12.9820, 1.1133, "Class 3: Moderate Hazard", 72064,72064,72064,509,0,0.958,2000,"Prograde","10.24","9.75",2.44,3.01,3.81,4.98,6.77,9.75,9.27,17.75,39.85,32.19,0.01,144128,"Sun","TOI-201","N/A"),
-      b("TOI-201 d", "Exoplanets", 16.0130, 1.2045, "Class 3: Moderate Hazard", 8919.4,8919.4,8919.4,12060,0,0.980,50,"Prograde","30.06","29.44",7.36,9.09,11.50,15.02,20.44,29.44,24.40,19.97,14.94,7.97,0.005,17838.8,"Sun","TOI-201","N/A"),
-      b("Mrk 501 A", "Black Holes", 736600, 5.8672, "Class 5: Extreme Hazard", 3.0e7,3.0e7,3.0e7,150000,0,1.000,0,"Prograde","N/A","1.26e6",3.14e5,3.88e5,4.91e5,6.41e5,8.73e5,1.26e6,1.07e6,9.05e5,8.38e5,5.86e5,0.005,6.0e7,"Sun","Mrk 501","N/A"),
-      b("Mrk 501 B", "Black Holes", 232300, 5.3660, "Class 5: Extreme Hazard", 8.0e6,8.0e6,8.0e6,180000,0,1.000,0,"Prograde","N/A","4.02e5",1.01e5,1.24e5,1.57e5,2.05e5,2.79e5,4.02e5,3.40e5,2.95e5,2.50e5,1.70e5,0.005,1.6e7,"Parent","Mrk 501 A",7.6e7)
+      b("Sun", "Stars", 319.2730, "MHI Class 4: High Hazard", 696340,696340,696340,1408,15000000,1,2000,"Prograde","274.00","274.00",68.5,84.57,107.03,139.8,190.28,274,450.08,649.97,728.5,500,0.005,1.2e8,"Sun","Galactic Center","N/A"),
+      b("Mercury", "Terrestrial Planets", 1.9610, "MHI Class 2: Low Hazard", 2439,2439,2439,5427,2000,0.98,3,"Prograde","3.70","3.62",0.91,1.12,1.41,1.85,2.51,3.62,2.51,2.63,2,1.05,0.001,1e6,"Sun","Sun",57900000),
+      b("Venus", "Terrestrial Planets", 5.2730, "MHI Class 3: Moderate Hazard", 6051,6051,6051,5243,5200,0.99,1.8,"Retrograde","8.87","8.77",2.19,2.71,3.43,4.47,6.09,8.77,6.3,7.1,7.44,4.23,-0.001,1.2e7,"Sun","Sun",108200000),
+      b("Earth", "Terrestrial Planets", 5.5160, "MHI Class 3: Moderate Hazard", 6378.1,6378.1,6356.8,5515,6000,0.98,460,"Prograde","9.81","9.61",2.4,2.97,3.75,4.9,6.67,9.61,6.67,5.71,8.1,4.38,0.003,1.5e7,"Sun","Sun",149600000),
+      b("Mars", "Terrestrial Planets", 2.1390, "MHI Class 2: Low Hazard", 3396.2,3396.2,3376.2,3933,1500,0.96,241,"Prograde","3.71","3.57",0.89,1.1,1.39,1.82,2.48,3.57,2.54,3.58,2.6,1.42,0.002,8e6,"Sun","Sun",227900000),
+      b("Jupiter", "Gas Giants", 38.2680, "MHI Class 4: High Hazard", 71492,71492,66854,1326,24000,0.958,12600,"Prograde","24.79","24.79",6.2,7.65,9.68,12.65,17.21,24.79,16.46,44.89,149.63,93.52,0.015,1.8e8,"Sun","Sun",778500000),
+      b("Saturn", "Gas Giants", 21.8150, "MHI Class 3: Moderate Hazard", 60268,60268,54364,687,11700,0.935,9870,"Prograde","10.44","10.44",2.61,3.22,4.08,5.33,7.25,10.44,7.3,31.93,91.24,54.75,0.01,1.5e8,"Sun","Sun",1432000000),
+      b("Uranus", "Ice Giants", 6.9360, "MHI Class 3: Moderate Hazard", 25559,25559,24973,1271,5000,0.966,2590,"Retrograde","8.69","8.69",2.17,2.68,3.39,4.43,6.03,8.69,7.11,12.43,13.96,8.47,-0.003,6e7,"Sun","Sun",2867000000),
+      b("Neptune", "Ice Giants", 8.4020, "MHI Class 3: Moderate Hazard", 24764,24764,24341,1638,7000,0.99,2680,"Prograde","11.15","11.15",2.79,3.44,4.36,5.69,7.74,11.15,9.25,14.45,15.31,9.84,0.003,6e7,"Sun","Sun",4515000000),
+      b("Moon", "Moons", 0.8430, "MHI Class 2: Low Hazard", 1738.1,1738.1,1736,3344,1600,0.995,4.6,"Prograde","1.62","1.61",0.41,0.5,0.63,0.82,1.12,1.61,1.24,0.99,0.71,0.4,0.001,5e6,"Parent","Earth",384400),
+      b("Io", "Moons", 0.9640, "MHI Class 2: Low Hazard", 1830,1819.2,1815.6,2508,1800,0.98,75,"Prograde","1.79","1.77",0.44,0.55,0.69,0.9,1.23,1.77,1.45,1.19,0.9,0.52,0.001,3.6e6,"Parent","Jupiter",421700),
+      b("Europa", "Moons", 0.7280, "MHI Class 2: Low Hazard", 1564.1,1561.3,1556.6,2208,1000,0.95,28,"Prograde","1.31","1.29",0.32,0.4,0.51,0.65,0.89,1.29,1.13,0.96,0.72,0.41,0.001,3.1e6,"Parent","Jupiter",671034),
+      b("Ganymede", "Moons", 0.8540, "MHI Class 2: Low Hazard", 2634,2634,2634,1444,1500,0.94,50,"Prograde","1.43","1.41",0.35,0.44,0.55,0.72,0.97,1.41,1.26,1.2,1.02,0.62,0.001,5.3e6,"Parent","Jupiter",1070400),
+      b("Callisto", "Moons", 0.6810, "MHI Class 2: Low Hazard", 2410.3,2410.3,2410.3,1429,1000,0.9,46,"Prograde","1.24","1.23",0.31,0.38,0.48,0.62,0.85,1.23,1.03,0.88,0.66,0.37,0.001,4.8e6,"Parent","Jupiter",1882700),
+      b("Titan", "Moons", 0.8500, "MHI Class 2: Low Hazard", 2575,2575,2575,1208,1000,0.95,36,"Prograde","1.35","1.33",0.33,0.41,0.52,0.68,0.92,1.33,1.23,1.2,1.16,0.72,0.001,5.2e6,"Parent","Saturn",1221870),
+      b("Enceladus", "Moons", 0.0591, "MHI Class 2: Low Hazard", 256.6,251.4,248.3,1610,400,0.61,12,"Prograde","0.113","0.111",0.03,0.03,0.05,0.06,0.08,0.111,0.1,0.06,0.05,0.02,0.001,5.1e5,"Parent","Saturn",237948),
+      b("Rhea", "Moons", 0.1490, "MHI Class 2: Low Hazard", 763.8,763.8,763.8,1236,400,0.6,10,"Prograde","0.26","0.26",0.06,0.08,0.1,0.13,0.18,0.26,0.23,0.19,0.16,0.1,0.001,1.5e6,"Parent","Saturn",527108),
+      b("Iapetus", "Moons", 0.1176, "MHI Class 2: Low Hazard", 747.4,747.4,712.4,1090,400,0.6,3,"Prograde","0.22","0.216",0.05,0.07,0.09,0.11,0.15,0.216,0.18,0.14,0.11,0.06,0.001,1.5e6,"Parent","Saturn",3560820),
+      b("Dione", "Moons", 0.1270, "MHI Class 2: Low Hazard", 563.6,561.4,559.8,1470,400,0.61,15,"Prograde","0.23","0.23",0.06,0.06,0.08,0.11,0.16,0.23,0.19,0.16,0.14,0.08,0.001,1.1e6,"Parent","Saturn",377396),
+      b("Tethys", "Moons", 0.0807, "MHI Class 2: Low Hazard", 535.6,528.1,525.8,1030,400,0.6,18,"Prograde","0.145","0.147",0.04,0.05,0.06,0.08,0.1,0.147,0.12,0.1,0.08,0.03,0.001,1.1e6,"Parent","Saturn",294619),
+      b("Titania", "Moons", 0.2060, "MHI Class 2: Low Hazard", 788.4,788.4,788.4,1711,400,0.54,14,"Prograde","0.38","0.37",0.09,0.11,0.15,0.19,0.26,0.37,0.32,0.26,0.2,0.11,0.001,1.6e6,"Parent","Uranus",435910),
+      b("Oberon", "Moons", 0.1970, "MHI Class 2: Low Hazard", 761.4,761.4,761.4,1630,400,0.54,13,"Prograde","0.35","0.35",0.09,0.11,0.13,0.19,0.24,0.35,0.3,0.26,0.19,0.11,0.001,1.5e6,"Parent","Uranus",583520),
+      b("Ariel", "Moons", 0.1390, "MHI Class 2: Low Hazard", 581.1,577.9,577.7,1660,400,0.53,14,"Prograde","0.27","0.26",0.07,0.07,0.09,0.13,0.19,0.26,0.21,0.17,0.13,0.07,0.001,1.2e6,"Parent","Uranus",190900),
+      b("Umbriel", "Moons", 0.1080, "MHI Class 2: Low Hazard", 584.7,584.7,584.7,1390,400,0.47,10,"Prograde","0.20","0.20",0.05,0.06,0.08,0.1,0.14,0.2,0.17,0.13,0.09,0.06,0.001,1.2e6,"Parent","Uranus",266000),
+      b("Miranda", "Moons", 0.0426, "MHI Class 2: Low Hazard", 240.4,234.2,232.9,1200,400,0.54,12,"Prograde","0.079","0.079",0.02,0.02,0.03,0.04,0.06,0.079,0.066,0.052,0.038,0.021,0.001,4.8e5,"Parent","Uranus",129390),
+      b("Triton", "Moons", 0.4110, "MHI Class 2: Low Hazard", 1353.4,1353.4,1353.4,2060,400,0.49,17,"Retrograde","0.78","0.78",0.21,0.25,0.31,0.39,0.53,0.78,0.59,0.47,0.37,0.21,-0.001,2.7e6,"Parent","Neptune",354759),
+      b("Ceres", "Dwarf Planets", 0.1560, "MHI Class 2: Low Hazard", 483,483,446,1896,400,0.9,93,"Prograde","0.28","0.28",0.07,0.09,0.11,0.15,0.2,0.28,0.24,0.19,0.14,0.09,0.015,9.7e5,"Sun","Sun",413700000),
+      b("Vesta", "Asteroids", 0.1150, "MHI Class 2: Low Hazard", 286,279,223,3450,400,0.73,89,"Prograde","0.22","0.22",0.06,0.07,0.08,0.11,0.16,0.22,0.17,0.13,0.1,0.05,0.015,5.7e5,"Sun","Sun",353200000),
+      b("Pluto", "Dwarf Planets", 0.3390, "MHI Class 2: Low Hazard", 1188.3,1188.3,1188.3,1854,1000,0.47,13,"Retrograde","0.62","0.63",0.16,0.19,0.24,0.32,0.43,0.63,0.48,0.4,0.34,0.2,-0.001,2.4e6,"Sun","Sun",5906000000),
+      b("Haumea", "Dwarf Planets", 0.2670, "MHI Class 2: Low Hazard", 1050,840,537,1040,400,0.85,2000,"Prograde","0.44","0.44",0.11,0.13,0.18,0.22,0.31,0.44,0.42,0.37,0.31,0.18,0.03,2.1e6,"Sun","Sun",6452000000),
+      b("Makemake", "Dwarf Planets", 0.3020, "MHI Class 2: Low Hazard", 715,715,715,1337,400,0.85,58,"Prograde","0.50","0.50",0.13,0.16,0.2,0.27,0.36,0.5,0.47,0.42,0.33,0.18,0.002,1.4e6,"Sun","Sun",6850000000),
+      b("Eris", "Dwarf Planets", 0.4610, "MHI Class 2: Low Hazard", 1163,1163,1163,2430,400,0.45,11,"Prograde","0.82","0.86",0.22,0.27,0.34,0.44,0.58,0.86,0.71,0.56,0.41,0.22,0.002,2.3e6,"Sun","Sun",10180000000),
+      b("Sedna", "Dwarf Planets", 0.0230, "MHI Class 2: Low Hazard", 497.5,497.5,497.5,2000,400,0.15,9,"Prograde","N/A","0.04",0.01,0.01,0.02,0.02,0.03,0.04,0.04,0.03,0.02,0.01,0.001,1.8e10,"Sun","Sun",76000000000),
+      b("'Oumuamua", "Interstellar Objects", 5.2e-05, "MHI Class 1: Safe", 0.2,0.08,0.065,3500,50,0.9,10,"Tumbling","N/A","1.0e-4",3e-5,3e-5,4e-5,5e-5,7e-5,1e-4,8e-5,6e-5,4e-5,2e-5,0.02,1.8e10,"Sun","Sun","Hyperbolic"),
+      b("L 98-59 d", "Exoplanets", 8.9830, "MHI Class 3: Moderate Hazard", 10066,10066,10066,5540,6000,0.98,250,"Prograde","N/A","15.26",3.82,4.71,5.96,7.79,10.6,15.26,12.34,10.36,12.24,6.75,0.005,2.1e7,"Sun","L 98-59",4200000),
+      b("Comet 67P", "Comets", 5.8e-05, "MHI Class 1: Safe", 2.15,1.6,1.35,533,50,0.45,1,"Prograde","~ 10^{-4}","1.1e-4",3e-5,3e-5,4e-5,6e-5,8e-5,1.1e-4,9e-5,7e-5,5e-5,2e-5,0.02,1.8e10,"Sun","Sun",518000000),
+      b("3I/ATLAS", "Interstellar Objects", 0.000121, "MHI Class 1: Safe", 2.5,2.5,2.5,400,50,0.8,2,"Prograde","N/A","2.2e-4",6e-5,7e-5,9e-5,1.1e-4,1.5e-4,2.2e-4,1.9e-4,1.5e-4,1.1e-4,6e-5,0.015,1.8e10,"Sun","Sun","Hyperbolic"),
+      b("TOI-1338 b", "Exoplanets", 15.5230, "MHI Class 3: Moderate Hazard", 43640,43640,43640,800,10000,1,750,"Prograde","N/A","9.75",2.44,3.01,3.81,4.97,6.77,9.75,8.77,18.27,58.46,38.98,0.005,9e7,"Sun","TOI-1338",69000000),
+      b("EP250702a", "Black Holes", 588.1940, "MHI Class 4: High Hazard", 15000,15000,15000,250000,0,1.000,0,"Prograde","N/A","1047.00",261.75,323.15,408.98,534.18,727.08,1047.00,871.10,703.58,586.32,418.80,0.01,30000,"Sun","Sun","N/A"),
+      b("NGC 1052-DF9", "Galaxies", 1.9680, "MHI Class 2: Low Hazard", 85000,85000,85000,150,0,0.950,0,"Tumbling","N/A","3.38",0.85,1.04,1.32,1.73,2.35,3.38,2.89,2.46,2.28,1.38,0.01,170000,"Sun","Sun","N/A"),
+      b("Crab Pulsar", "Neutron Stars", 9.383e+11, "MHI Class 6: Critical Hazard", 10,10,10,7.1e17,0,1.000,1.88e6,"Prograde","N/A","1.63e12",4.07e11,5.03e11,6.36e11,8.31e11,1.13e12,1.63e12,1.61e12,1.24e12,8.93e11,5.03e11,0.05,20,"Sun","Sun","N/A"),
+      b("HD 189733 b", "Exoplanets", 33.3450, "MHI Class 4: High Hazard", 81385,81385,81385,1040,0,0.920,2000,"Prograde","N/A","21.69",5.42,6.69,8.47,11.07,15.06,21.69,18.39,37.63,125.42,83.61,0.01,162770,"Sun","HD 189733","N/A"),
+      b("Arrokoth", "Kuiper Belt Objects", 0.000153, "MHI Class 1: Safe", 8.9,8.9,8.9,250,0,0.400,1,"Tumbling","N/A","3e-4",8e-5,9e-5,1e-4,2e-4,2e-4,3e-4,2e-4,2e-4,1e-4,6e-5,0.02,17.8,"Sun","Sun",44.00),
+      b("PSO J318.5", "Rogue Planets", 36.7880, "MHI Class 4: High Hazard", 109000,109000,109000,800,0,0.950,5000,"Prograde","N/A","22.91",5.73,7.07,8.95,11.69,15.91,22.91,20.81,43.36,138.87,92.58,0.01,218000,"Sun","None","N/A"),
+      b("Sgr A*", "Black Holes", 294100, "MHI Class 5: Extreme Hazard", 12.0e6,12.0e6,12.0e6,150000,0,1.000,0,"Prograde","N/A","5.02e5",1.25e5,1.55e5,1.96e5,2.56e5,3.49e5,5.02e5,4.28e5,3.61e5,3.35e5,2.34e5,0.005,2.4e7,"Sun","Milky Way","N/A"),
+      b("Cygnus X-1", "Black Holes", 2.319e+11, "MHI Class 6: Critical Hazard", 44.0,44.0,44.0,3.5e16,0,1.000,1.5e6,"Prograde","N/A","4.30e11",1.07e11,1.33e11,1.68e11,2.19e11,2.99e11,4.30e11,3.54e11,2.80e11,2.06e11,1.23e11,0.05,88.0,"Sun","Sun","N/A"),
+      b("Bennu", "Asteroids", 1.26e-05, "MHI Class 1: Safe", 0.245,0.245,0.245,1190,0,0.600,0.1,"Tumbling","8e-6","8e-6",2e-6,3e-6,3e-6,4e-6,6e-6,8e-6,4e-5,3e-5,2e-5,1e-5,0.02,0.49,"Sun","Sun",1.12),
+      b("Dimorphos", "Moons", 9e-06, "MHI Class 1: Safe", 0.085,0.085,0.085,2100,0,0.650,0.05,"Tumbling","N/A","3e-6",1e-6,1e-6,1e-6,2e-6,2e-6,3e-6,3e-5,2e-5,2e-5,1e-5,0.02,0.17,"Parent","Didymos",1.18),
+      b("Gliese 436 b", "Exoplanets", 9.3540, "MHI Class 3: Moderate Hazard", 27600,27600,27600,2000,0,0.990,3000,"Prograde","N/A","14.93",3.73,4.61,5.83,7.62,10.37,14.93,13.43,11.44,12.33,9.25,0.01,55200,"Sun","Gliese 436","N/A"),
+      b("Planet Nine", "Ice Giants", 6.1070, "MHI Class 3: Moderate Hazard", 19000,19000,19000,1500,0,0.970,1000,"Prograde","N/A","7.66",1.92,2.37,2.99,3.91,5.32,7.66,7.00,10.92,11.55,7.43,0.005,38000,"Sun","Sun","N/A"),
+      b("TRAPPIST-1e", "Exoplanets", 5.1800, "MHI Class 3: Moderate Hazard", 5800,5800,5800,5600,0,0.980,2,"Prograde","N/A","8.89",2.22,2.74,3.47,4.53,6.17,8.89,6.10,5.77,7.70,4.21,0.005,11600,"Sun","TRAPPIST-1","N/A"),
+      b("PSR J1719", "Exoplanets", 85.2930, "MHI Class 4: High Hazard", 25000,25000,25000,23000,0,0.999,5000,"Prograde","N/A","159.38",39.84,49.19,62.26,81.32,110.68,159.38,133.88,104.70,72.59,39.09,0.01,50000,"Sun","PSR J1719-1438","N/A"),
+      b("TON 618", "Black Holes", 3.285e+09, "MHI Class 6: Critical Hazard", 1.95e11,1.95e11,1.95e11,100000,0,1.000,0,"Prograde","N/A","5.44e9",1.36e9,1.68e9,2.13e9,2.78e9,3.78e9,5.44e9,4.79e9,4.25e9,3.92e9,2.72e9,0.005,3.9e11,"Sun","Sun","N/A"),
+      b("TOI-5205 b", "Exoplanets", 22.4340, "MHI Class 3: Moderate Hazard", 73600,73600,73600,2921,0,0.958,1000,"Prograde","N/A","25.03",6.26,7.73,9.78,12.77,17.39,25.03,17.18,26.05,63.15,39.00,0.01,147200,"Sun","TOI-5205",0.02),
+      b("HATS-75 b", "Exoplanets", 26.1240, "MHI Class 3: Moderate Hazard", 73337,73337,73337,3111,0,0.957,1100,"Prograde","N/A","28.92",7.23,8.93,11.30,14.76,20.08,28.92,26.12,31.11,68.54,44.25,0.01,146674,"Sun","HATS-75",0.03),
+      b("WASP-193b", "Exoplanets", 6.3590, "MHI Class 3: Moderate Hazard", 107000,107000,107000,59,0,0.910,5000,"Prograde","N/A","1.37",0.34,0.42,0.54,0.70,0.95,1.37,2.17,8.16,21.75,27.19,0.01,214000,"Sun","WASP-193","N/A"),
+      b("LHS 3154 b", "Exoplanets", 7.2170, "MHI Class 3: Moderate Hazard", 24000,24000,24000,2500,0,0.980,1500,"Prograde","N/A","7.35",1.84,2.27,2.87,3.75,5.10,7.35,8.27,10.75,17.91,12.06,0.01,48000,"Sun","LHS 3154",0.03),
+      b("Superatom", "Quantum Scale", 3.997e-10, "MHI Class 1: Safe", 1e-6,1e-6,1e-6,2700,0,1.000,0,"Prograde","N/A","7.54e-10",1.88e-10,2.33e-10,2.94e-10,3.85e-10,5.24e-10,7.54e-10,6.25e-10,4.86e-10,3.35e-10,1.73e-10,0.001,2e-6,"Sun","Lab","N/A"),
+      b("TOI-201 c", "Brown Dwarfs", 229.0550, "MHI Class 4: High Hazard", 70777,70777,70777,18148,0,1.000,12000,"Prograde","N/A","356.59",89.15,110.06,139.29,181.93,247.63,356.59,316.18,296.41,316.18,237.13,0.015,141554,"Sun","TOI-201","N/A"),
+      b("TOI-201 b", "Exoplanets", 12.9820, "MHI Class 3: Moderate Hazard", 72064,72064,72064,509,0,0.958,2000,"Prograde","10.24","9.75",2.44,3.01,3.81,4.98,6.77,9.75,9.27,17.75,39.85,32.19,0.01,144128,"Sun","TOI-201","N/A"),
+      b("TOI-201 d", "Exoplanets", 16.0130, "MHI Class 3: Moderate Hazard", 8919.4,8919.4,8919.4,12060,0,0.980,50,"Prograde","30.06","29.44",7.36,9.09,11.50,15.02,20.44,29.44,24.40,19.97,14.94,7.97,0.005,17838.8,"Sun","TOI-201","N/A"),
+      b("Mrk 501 A", "Black Holes", 736600, "MHI Class 5: Extreme Hazard", 3.0e7,3.0e7,3.0e7,150000,0,1.000,0,"Prograde","N/A","1.26e6",3.14e5,3.88e5,4.91e5,6.41e5,8.73e5,1.26e6,1.07e6,9.05e5,8.38e5,5.86e5,0.005,6.0e7,"Sun","Mrk 501","N/A"),
+      b("Mrk 501 B", "Black Holes", 232300, "MHI Class 5: Extreme Hazard", 8.0e6,8.0e6,8.0e6,180000,0,1.000,0,"Prograde","N/A","4.02e5",1.01e5,1.24e5,1.57e5,2.05e5,2.79e5,4.02e5,3.40e5,2.95e5,2.50e5,1.70e5,0.005,1.6e7,"Parent","Mrk 501 A",7.6e7),
+      b("Mrk 501 Crush Zone", "Binary Midpoint", 518656.0, "MHI Class 7: Terminal Hazard", 0,0,0,0,0,0,0,"Static","N/A","5.18e5",5.18e5,5.18e5,5.18e5,5.18e5,5.18e5,5.18e5,5.18e5,5.18e5,5.18e5,5.18e5,0,0,"Parent","Mrk 501 A",6.6e7)
     ];
 
     let currentSortCol = '';
@@ -572,6 +575,7 @@
     const uiContainer = document.getElementById('ui-container');
     const hideBtn = document.getElementById('btn-toggle-ui');
     const helpBtn = document.getElementById('btn-help-ui');
+    const aboutBtn = document.getElementById('btn-about-ui');
     const tableBtn = document.getElementById('btn-table-ui');
     const hamburgerBtn = document.getElementById('hamburger-menu');
     
@@ -579,7 +583,6 @@
     const btnCloseHelpX = document.getElementById('btn-close-help-x');
     const btnCloseHelp = document.getElementById('btn-close-help');
 
-    const aboutBtn = document.getElementById('btn-about-ui');
     const aboutOverlay = document.getElementById('about-overlay');
     const btnCloseAboutX = document.getElementById('btn-close-about-x');
     const btnCloseAbout = document.getElementById('btn-close-about');
@@ -657,7 +660,6 @@
         {k:'category', l:'Category'},
         {k:'hazardClass', l:'Hazard Class'},
         {k:'avgSpeedG', l:'Avg Speed G (m/s²)'},
-        {k:'logSpeedG', l:'Log Speed G'},
         {k:'rx', l:'R_X (km)'}, {k:'ry', l:'R_Y (km)'}, {k:'rz', l:'R_Z (km)'},
         {k:'rho', l:'&rho; (kg/m&sup3;)'}, {k:'tCore', l:'T_core (K)'}, {k:'tau', l:'&tau;'}, {k:'vrot', l:'v_rot (m/s)'}, {k:'dir', l:'Dir'},
         {k:'m10', l:'M10 G (m/s&sup2;)', c:'#ff66ff'}, {k:'m9', l:'M9 G (m/s&sup2;)', c:'#88ccff'}, {k:'m8', l:'M8 G (m/s&sup2;)', c:'#88ccff'},
@@ -681,7 +683,7 @@
            <td style="color:#88ccff; font-weight:bold; text-align:center;">${index + 1}</td>
            <td style="color:#fff; font-weight:bold;">${b.name}</td><td>${b.category}</td>
            <td style="color:${hazColor}; font-weight:bold;">${b.hazardClass}</td>
-           <td>${b.avgSpeedG}</td><td>${b.logSpeedG}</td>
+           <td>${b.avgSpeedG}</td>
            <td>${b.rx.toLocaleString()}</td><td>${b.ry.toLocaleString()}</td><td>${b.rz.toLocaleString()}</td>
            <td>${b.rho.toLocaleString()}</td><td>${b.tCore.toLocaleString()}</td><td>${b.tau.toLocaleString(undefined, {minimumFractionDigits: 3})}</td>
            <td>${b.vrot.toLocaleString()}</td><td>${b.dir}</td>
