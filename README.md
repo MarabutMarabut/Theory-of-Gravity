@@ -1,6 +1,6 @@
-# Marabūt's Theory of Gravity: The Electron Flow Model (EFM) v42
+# Marabūt's Theory of Gravity: The Electron Flow Model (EFM) v43
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20055838.svg)](https://doi.org/10.5281/zenodo.20055838)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20055838.svg)](https://doi.org/10.5281/zenodo.20059942)
 [![Live Simulation](https://img.shields.io/badge/Live_Demo-Volumetric_Profiler-success.svg)](https://marabutmarabut.github.io/Theory-of-Gravity/)
 [![Python 3.x](https://img.shields.io/badge/python-3.x-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -73,7 +73,7 @@ These files contain the complete theoretical framework, derivations, quantum mec
 For the officially published, timestamped, and archived version, our paper is hosted on CERN's Zenodo:
 
 **Marabūt, C. B., & Marabūt, A. L. (2026).** *Marabūt's Theory of Gravity: The Push-Pull Mechanics of Vacuum Flux* (v42).  
-[Read the full paper on Zenodo](https://doi.org/10.5281/zenodo.20055838)
+[Read the full paper on Zenodo](https://doi.org/10.5281/zenodo.20059942)
 
 ---
 
