@@ -70,21 +70,21 @@ For full transparency, the complete LaTeX source codes and compiled PDFs are inc
 
 For the officially published, timestamped, and archived versions, our papers are hosted on CERN's Zenodo. **We are currently 50% complete with the 30-manuscript series.**
 
-* **Manuscript 01:** The Push-Pull Mechanics of Vacuum Flux — https://doi.org/10.5281/zenodo.20126552
-* **Manuscript 02:** Resolving the Weyl Potential Anomaly — https://doi.org/10.5281/zenodo.20127273
-* **Manuscript 03:** Mechanistic Resolution of Jet Deflection in Cygnus X-1 — https://doi.org/10.5281/zenodo.20128198
-* **Manuscript 04:** Quantum Mechanics of Stellar Chain Reactions and EVGS Formation — https://doi.org/10.5281/zenodo.20070275
-* **Manuscript 05:** The Heliospheric Grand Data Matrix — https://doi.org/10.5281/zenodo.20128777
-* **Manuscript 06:** Fluid-Dynamic Reinterpretation of Gravity, Black Holes, and Gravitational Waves — https://doi.org/10.5281/zenodo.20129881
-* **Manuscript 07:** Fluid-Dynamic Reinterpretation of the Kinematic Sunyaev-Zeldovich Effect — https://doi.org/10.5281/zenodo.20130260
-* **Manuscript 08:** Transcending the Singularity — Electron Void Gravitational Spheres — https://doi.org/10.5281/zenodo.20130802
-* **Manuscript 09:** The Final Parsec Problem Solved — https://doi.org/10.5281/zenodo.20134049
-* **Manuscript 10:** The Illusion of the Singularity — https://doi.org/10.5281/zenodo.20135534
-* **Manuscript 11:** The Illusion of Dark Energy — https://doi.org/10.5281/zenodo.20149142
-* **Manuscript 12:** The Illusion of Dark Matter — https://doi.org/10.5281/zenodo.20171373
-* **Manuscript 13:** The Illusion of Spacetime — https://doi.org/10.5281/zenodo.20172282
-* **Manuscript 14:** The Illusion of Spooky Action — https://doi.org/10.5281/zenodo.20173192
-* **Manuscript 15:** The Superluminal Mechanics of the Quantum Vacuum — https://doi.org/10.5281/zenodo.20173756
+*   **Manuscript 01:** [The Push-Pull Mechanics of Vacuum Flux](https://doi.org/10.5281/zenodo.20126552)
+*   **Manuscript 02:** [Resolving the Weyl Potential Anomaly](https://doi.org/10.5281/zenodo.20127273)
+*   **Manuscript 03:** [Mechanistic Resolution of Jet Deflection in Cygnus X-1](https://doi.org/10.5281/zenodo.20128198)
+*   **Manuscript 04:** [Quantum Mechanics of Stellar Chain Reactions and EVGS Formation](https://doi.org/10.5281/zenodo.20070275)
+*   **Manuscript 05:** [The Heliospheric Grand Data Matrix](https://doi.org/10.5281/zenodo.20128777)
+*   **Manuscript 06:** [Fluid-Dynamic Reinterpretation of Gravity, Black Holes, and Gravitational Waves](https://doi.org/10.5281/zenodo.20129881)
+*   **Manuscript 07:** [Fluid-Dynamic Reinterpretation of the Kinematic Sunyaev-Zeldovich Effect](https://doi.org/10.5281/zenodo.20130260)
+*   **Manuscript 08:** [Transcending the Singularity — Electron Void Gravitational Spheres](https://doi.org/10.5281/zenodo.20130802)
+*   **Manuscript 09:** [The Final Parsec Problem Solved](https://doi.org/10.5281/zenodo.20134049)
+*   **Manuscript 10:** [The Illusion of the Singularity](https://doi.org/10.5281/zenodo.20135534)
+*   **Manuscript 11:** [The Illusion of Dark Energy](https://doi.org/10.5281/zenodo.20149142)
+*   **Manuscript 12:** [The Illusion of Dark Matter](https://doi.org/10.5281/zenodo.20171373)
+*   **Manuscript 13:** [The Illusion of Spacetime](https://doi.org/10.5281/zenodo.20172282)
+*   **Manuscript 14:** [The Illusion of Spooky Action](https://doi.org/10.5281/zenodo.20173192)
+*   **Manuscript 15:** [The Superluminal Mechanics of the Quantum Vacuum](https://doi.org/10.5281/zenodo.20173756)
 
 ---
 
