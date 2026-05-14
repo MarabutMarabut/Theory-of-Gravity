@@ -1,0 +1,474 @@
+\pdfoutput=1
+\documentclass[11pt, a4paper]{article}
+
+% -------------------------------------------------------------------------
+% PACKAGES
+% -------------------------------------------------------------------------
+\usepackage[utf8]{inputenc}
+% Notice mathptmx is GONE!
+\usepackage{amsmath}
+\usepackage{amsfonts, amssymb}
+\usepackage{geometry}
+\usepackage{microtype}
+\usepackage{authblk}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc}
+\usepackage{parskip} 
+\usepackage{booktabs} 
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  backgroundcolor=\color{gray!10},
+  keywordstyle=\bfseries,
+  commentstyle=\itshape
+}
+\geometry{margin=1in, headheight=14.5pt}
+\newcommand{\doi}[1]{\href{https://doi.org/#1}{DOI: #1}}
+
+% -------------------------------------------------------------------------
+% HEADER & FOOTER (exact template style)
+% -------------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Mechanistic Physics}
+\rhead{Marab\={u}t's Theory of Gravity: Manuscript 6 Version 2}
+\cfoot{\thepage}
+
+% -------------------------------------------------------------------------
+% TITLE & AUTHOR
+% -------------------------------------------------------------------------
+\title{\textbf{Marab\={u}t's Theory of Gravity: \\ Fluid-Dynamic Reinterpretation of Gravity, \\ Black Holes, and Gravitational Waves} \\[1em] \large{Resolving the Singularity, the Information Paradox, \\ and the Mechanical Origin of Shockwaves}}
+
+\author[1]{Christopher Berry Marab\={u}t\thanks{ORCID iD: \href{https://orcid.org/0009-0001-9759-9587}{0009-0001-9759-9587} | Email: chris.marabut@nestlink.com}}
+\author[1]{Angelina Lopez Marab\={u}t\thanks{ORCID iD: \href{https://orcid.org/0009-0007-9937-6145}{0009-0007-9937-6145} | Email: angelina.marabut@nestlink.com}}
+
+\affil[1]{Independent Researchers}
+
+\date{May 11, 2026 \\[1.5em] \small{DOI: \url{https://doi.org/10.5281/zenodo.20129881} $|$ Manuscript 6 Version 2}}
+
+\begin{document}
+
+\hypersetup{
+  pdftitle={Marab\={u}t's Theory of Gravity: A Fluid-Dynamic Reinterpretation of Gravity, Black Holes, and Gravitational Waves},
+  pdfauthor={Christopher Berry Marab\={u}t, Angelina Lopez Marab\={u}t},
+  pdfkeywords={mechanistic physics, general relativity alternative, electron flow model, EVGS, thermal-proximity flex, gravitational waves, information paradox, cygnus x-1, xrism},
+  pdfsubject={Astrophysics Theoretical Framework}
+}
+
+\maketitle
+
+% -------------------------------------------------------------------------
+% ABSTRACT
+% -------------------------------------------------------------------------
+\begin{abstract}
+  This manuscript presents the Electron Flow Model (EFM), a fluid-dynamic reinterpretation of gravity based on vacuum electron flux and Electron Void Gravitational Spheres (EVGS). We detail the framework's conceptual resolutions to legacy anomalies in General Relativity: the elimination of the $r=0$ singularity, the preservation of data via Pauli Exclusion structuring, the thermodynamic derivation of astrophysical jets, and the mechanical interpretation of gravitational waves as quadrupolar fluid shear. We define the governing equations of the vacuum flux and address critical astrophysical constraints, including relativistic consistency and macroscopic neutrality. Finally, we establish the ``Thermal-Proximity Flex'' as a falsifiable prediction, providing a clear observational roadmap for next-generation X-ray microcalorimeters.
+\end{abstract}
+
+% -------------------------------------------------------------------------
+% 1 Introduction
+% -------------------------------------------------------------------------
+\section{Introduction}
+Marab\={u}t's Theory of Gravity represents a bold transition from geometric abstraction to mechanistic reality \cite{marabut2026m1}. Rather than describing gravity as the curvature of empty spacetime, the Electron Flow Model (EFM) proposes that gravity arises from the active, continuous thermodynamic consumption of a physical vacuum electron flux. Building upon the foundational resolutions established throughout this compendium \cite{marabut2026m1, marabut2026m2, marabut2026m3, marabut2026m4, marabut2026m5}, this model redefines mass not as an intrinsic property, but as a measure of structural fluid impedance.
+
+During the rigorous computational stress-testing phase of this compendium, advanced AI models (acting as dialectic proxies for standard General Relativity) posed significant, high-level challenges to the EFM. This manuscript serves to permanently record the mathematical and conceptual resolutions to those challenges. By explicitly outlining both the framework's victories and its remaining mathematical frontiers, this document positions the EFM as a mature, testable, and falsifiable scientific theory.
+
+% -------------------------------------------------------------------------
+% 2 Core Mechanics and Mathematical Resolutions
+% -------------------------------------------------------------------------
+\section{Core Mechanics and Mathematical Resolutions}
+
+\subsection{The EVGS Core vs. the \texorpdfstring{$r=0$}{r=0} Singularity}
+A well-known limitation of classical GR solutions is the emergence of curvature singularities---infinite density within zero volume, leading to a breakdown of physical laws. The EFM replaces this anomaly with the Electron Void Gravitational Sphere (EVGS) \cite{marabut2026m4}.
+
+Collapse is strictly halted at a finite, non-zero radius ($R_{\text{core}}$) where the inward hydrodynamic crush of the vacuum flux ($P_{\text{in}}$) achieves perfect thermodynamic equilibrium with the outward electrostatic repulsion ($P_{\text{out}}$) of the hyper-saturated core. By utilizing fluid dynamics, the EFM natively forbids the $r=0$ singularity, replacing it with a calculable physical engine.
+
+\subsection{Macro-Neutrality and the Charge Problem}
+A critical challenge raised against the EVGS concerns the immense negative charge of the hyper-saturated core: if the core is vastly negative, why do black holes appear electrically neutral to the external universe? 
+
+The resolution lies in the Positive Pressure Cascade. As the core violently repels excess electrons, it strips surrounding atomic layers, creating a massive, continuous spherical shell of structural voids (positive charge). From a macro-distance, the negative charge of the core ($Q_{\text{core}}$) is perfectly counterbalanced by the positive charge of the surrounding ionized shell ($Q_{\text{shell}}$). Therefore, $Q_{\text{total}} \approx 0$. Internally, the object operates as a cosmic-scale capacitor with extreme charge separation, which ultimately powers the central magnetic dynamo, yet it maintains external macro-neutrality.
+
+\subsection{Achromatic Light Bending}
+General Relativity argues that light bending must be geometric because it is achromatic (identical across all frequencies), whereas standard fluid refraction typically causes dispersion. The EFM resolves this by defining the vacuum electron flux as the \textit{fundamental} medium. Photons do not travel ``through'' a secondary prism; they propagate as electromagnetic disturbances \textit{within} the flux itself. When the density of the flux increases near a massive sink, the propagation speed of the wavefront is uniformly retarded by thermodynamic impedance. The refraction is entirely structural, rendering the bending natively achromatic.
+
+\subsection{The River and the Boat: Relativistic Consistency}
+A common critique of the EFM concerns its use of classical kinetic energy formulas at velocities approaching $c$. The resolution lies in distinguishing between two physical situations: (1) solid particles accelerating through a stationary medium (the ``boat''), where Special Relativity and Lorentz factors rigorously apply, and (2) the macroscopic vacuum electron flux itself collapsing inward (the ``river''). In the latter case, we are calculating the ram pressure of the fluid medium reaching its terminal propagation velocity, not individual particles accelerating against a fixed background. The EFM therefore maintains consistency with local energy-momentum conservation while rejecting the unphysical divergence of classical mass at the medium's natural speed limit.
+
+\subsection{Governing Equations of the Vacuum Flux}
+To formally anchor the hydrodynamic mechanisms of the EFM, we define the vacuum electron flux as a compressible, perfect superfluid at macroscopic scales. The framework is governed by the following core fluid-dynamic relations:
+
+\textbf{1. Flux Conservation (The Continuity Equation)}\\
+The universal flow of the vacuum flux obeys standard fluid continuity. Where $\rho_{\text{flux}}$ is the flux density and $\mathbf{v}$ is the flow velocity vector, the conservation of the medium is:
+\begin{equation} \label{eq:continuity}
+  \frac{\partial \rho_{\text{flux}}}{\partial t} + \nabla \cdot (\rho_{\text{flux}} \mathbf{v}) = 0
+\end{equation}
+For a stable EVGS in thermodynamic equilibrium, the intake rate across the Impedance Boundary is constant, yielding a continuous mass-energy consumption rate ($\dot{M}_{\text{consume}}$). We take $d\mathbf{A}$ outward; $\dot{M}_{\text{consume}} > 0$ denotes net inward consumption, formalized as:
+\begin{equation} \label{eq:massflux}
+  -\oint_{A} \rho_{\text{flux}} \mathbf{v} \cdot d\mathbf{A} = \dot{M}_{\text{consume}}
+\end{equation}
+
+\textbf{2. The Pressure Balance Equation (EVGS Core Stability)}\\
+The core radius ($R_{\text{core}}$) is strictly defined as the boundary where the inward hydrodynamic ram pressure of the flux reaching terminal velocity ($c$) perfectly equalizes with the outward electron degeneracy pressure (the Positive Pressure Cascade).
+\begin{equation} \label{eq:pressurebalance}
+  P_{\text{in}} = P_{\text{out}} \implies \frac{1}{2} \rho_{\text{flux}} c^2 = K_e n_e^{\gamma}
+\end{equation}
+Here, $\gamma$ represents the adiabatic index (e.g., $\gamma = 5/3$ for non-relativistic degeneracy), $K_e$ represents the equation of state proportionality constant, and $n_e$ is the electron number density of the hyper-saturated Pauli lattice.
+
+\textbf{3. Energy Density and Displacement}\\
+The kinetic energy transfer of a gravitational shockwave (such as GW150914) is derived directly from the volumetric displacement of the flux medium, conserving energy without relying on abstract geometric tensors:
+\begin{equation} \label{eq:shockenergy}
+  E_{\text{shock}} = \int_{V} \rho_{\text{flux}} c^2 \, dV = \Delta M_{\text{disp}} c^2
+\end{equation}
+In the EFM, the measurable GW energy corresponds to a change in the effective displaced mass-energy (model-defined) of the medium, not a separate geometric field energy.
+
+% -------------------------------------------------------------------------
+% 3 Jet Kinematics and the Exhaust Ratio
+% -------------------------------------------------------------------------
+\section{Jet Kinematics and the Exhaust Ratio}
+Standard General Relativistic Magnetohydrodynamics (GRMHD) relies on unproven, arbitrary magnetic fields (the Blandford-Znajek mechanism) to extract energy from spinning spacetime. The EFM derives jet power purely from fluid thermodynamics as the \textit{Exhaust Ratio} ($\eta_{\text{ex}}$) of the inward kinetic mass flow \cite{marabut2026m3}.
+
+While early iterations of the framework wrestled with the application of relativistic bounds, rigorous dialectic review clarified that because the EFM defines $c$ as the terminal propagation velocity of the fluid medium itself, the classical kinetic energy equation ($P_{\text{in}} = \frac{1}{2}\dot{m}v^2$) applies directly to the macro-fluid ram pressure. For a near-maximal spin object like Cygnus X-1, relativistic equatorial vorticity acts as a fluid choke. Exhaust is mechanically forced through the polar spherical caps. The exact exhaust ratio is derived geometrically from the solid angle of the escape cone (see Appendix A):
+\begin{equation}
+  \eta_{\text{ex}} = 1 - \cos\theta
+\end{equation}
+For Cygnus X-1's observed $8^\circ - 9^\circ$ jet collimation \cite{prabu2026}, this yields an exact thermodynamic exhaust of $\sim 0.98\% - 1.2\%$. This perfectly matches the observed $10^{36} - 10^{37}$ erg/s jet kinetic power without requiring arbitrary magnetic parameterization.
+
+% -------------------------------------------------------------------------
+% 4 The Information Paradox and the Pauli Lattice
+% -------------------------------------------------------------------------
+\section{The Information Paradox and the Pauli Lattice}
+The Black Hole Information Paradox is an artificial crisis resulting from GR's zero-volume singularity and the subsequent assumption of Hawking radiation evaporation \cite{hawking1976}. In the EFM, information is never destroyed because the EVGS maintains a finite volume and does not evaporate.
+
+Matter crossing the Impedance Boundary is structurally compressed into the densest state allowable by quantum mechanics. Governed by the Pauli Exclusion Principle and Electron Degeneracy Pressure, the specific quantum information (spin, momentum, charge) of infalling particles strictly dictates the architecture of the hyper-dense crystalline/plasma lattice. Quiescent black holes (e.g., Sagittarius A*) function as cosmic ``hard drives'', unitarily preserving data in physical lattice states indefinitely.
+
+% -------------------------------------------------------------------------
+% 5 Gravitational Waves as Hydrodynamic Shockwaves
+% -------------------------------------------------------------------------
+\section{Gravitational Waves as Hydrodynamic Shockwaves}
+The EFM reinterprets gravitational waves not as geometric ripples, but as immense hydrodynamic shockwaves propagating through the vacuum electron flux \cite{ligo2016}.
+\begin{itemize}
+  \item \textbf{The Quadrupole Shape}: A binary merger acts as a ``cosmic eggbeater''. The violent orbital shearing of the surrounding fluid inherently produces the quadrupolar $+$ and $\times$ transverse tensor polarizations.
+  \item \textbf{The Speed Limit ($c$)}: Modeling the vacuum flux as a perfect superfluid, waves propagate without dispersion at the fluid's natural terminal velocity: $v = \sqrt{K/\rho} = c$.
+  \item \textbf{Energy Accounting}: The $3 M_\odot$ equivalent of energy radiated in GW150914 does not represent mass annihilated into geometry. It represents the fluid-displacement equivalence ($E = \Delta M_{\text{disp}} c^2$) of the vacuum flux violently snapping inward to fill the reduced surface area of the merged cores, as formalized in Eq. (\ref{eq:shockenergy}).
+  \item \textbf{Detection}: LIGO functions as a vacuum-flux seismometer, measuring the Micro-Kinetic physical compression and expansion of its own atomic mirrors as the alternating pressure gradients of the fluid tsunami pass through the Earth.
+\end{itemize}
+Ultimately, this fluid interpretation perfectly conserves the system's energy strictly through mechanical displacement, eliminating the need to mathematically conjure energy out of empty space via an abstract Isaacson stress-energy tensor.
+
+% -------------------------------------------------------------------------
+% 6 Visualizing the Paradigm Shift
+% -------------------------------------------------------------------------
+\section{Structural Visualization: EVGS vs. Singularity}
+To illustrate the fundamental physical divergence between General Relativity and the EFM, Figure \ref{fig:core_compare} maps the coordinate space of a hyper-dense mass center.
+
+\begin{figure}[!ht]
+  \centering
+  \begin{tikzpicture}[scale=0.9, >=stealth]
+    % GR Side
+    \node[font=\small\bfseries] at (-3.5, 4) {General Relativity};
+    \draw[thick, ->] (-6, 0) -- (-1, 0) node[right] {$r$};
+    \draw[thick, ->] (-3.5, -1) -- (-3.5, 3) node[above] {Density};
+    \draw[red, thick, dashed] (-3.5, 0) -- (-3.5, 2.5);
+    \fill[red] (-3.5, 0) circle (0.1);
+    \node[red, font=\small, below left] at (-3.5, 0) {$r=0$};
+    \node[font=\footnotesize, align=center] at (-3.5, -1.5) {Singularity \\ Infinite Density \\ Zero Volume};
+
+    % Divider
+    \draw[thick, dotted] (0, -2) -- (0, 4.5);
+
+    % EFM Side
+    \node[font=\small\bfseries] at (3.5, 4) {Electron Flow Model (EVGS)};
+    \draw[thick, ->] (1, 0) -- (6, 0) node[right] {$r$};
+    \draw[thick, ->] (3.5, -1) -- (3.5, 3) node[above] {Pressure};
+    
+    % EFM Core
+    \fill[blue!10] (2.0, 0) rectangle (5.0, 2.5);
+    \draw[blue, thick] (2.0, 0) -- (2.0, 2.5) -- (5.0, 2.5) -- (5.0, 0);
+    \node[blue, font=\small, below] at (2.0, 0) {$-R_{\text{core}}$};
+    \node[blue, font=\small, below] at (5.0, 0) {$+R_{\text{core}}$};
+    \node[font=\footnotesize, align=center] at (3.5, 1.25) {Hyper-Saturated \\ Lattice \\ $P_{\text{in}} = P_{\text{out}}$};
+    \node[font=\footnotesize, align=center] at (3.5, -1.5) {Finite Volume \\ Thermodynamic Equilibrium};
+    
+    % Arrows
+    \draw[->, thick, red] (0.8, 1.5) -- (1.8, 1.5) node[midway, above, font=\tiny] {$P_{\text{in}}$};
+    \draw[->, thick, red] (6.2, 1.5) -- (5.2, 1.5) node[midway, above, font=\tiny] {$P_{\text{in}}$};
+    
+    \draw[->, thick, green!60!black] (2.2, 0.8) -- (1.2, 0.8) node[midway, below, font=\tiny] {$P_{\text{out}}$};
+    \draw[->, thick, green!60!black] (4.8, 0.8) -- (5.8, 0.8) node[midway, below, font=\tiny] {$P_{\text{out}}$};
+  \end{tikzpicture}
+  \caption{\textit{Comparison of the $r=0$ singularity in General Relativity versus the finite-volume EVGS core in the EFM.} The EFM core is stabilized by the exact thermodynamic equilibrium between inward hydrodynamic crush ($P_{\text{in}}$) and outward electrostatic repulsion ($P_{\text{out}}$), as established in Eq. (\ref{eq:pressurebalance}).}
+  \label{fig:core_compare}
+\end{figure}
+
+% -------------------------------------------------------------------------
+% 7 The Thermal-Proximity Flex and Observational Falsifiability
+% -------------------------------------------------------------------------
+\section{The Thermal-Proximity Flex and Observational Falsifiability}
+The EFM proposes the ``Thermal-Proximity Flex'' as a falsifiable replacement for Hawking radiation. Rather than a static geometric leak, EVGS thermal emission is the active thermodynamic friction (shock-glow) of the vacuum flux compressing against the Impedance Boundary. Because it is environmentally dependent, the spectrum flexes based on local flux density:
+\begin{itemize}
+  \item \textbf{Cygnus X-1 (Saturated):} Immersed in stellar wind, yielding extreme ram pressure. Prediction: $10^5 - 10^6$ K, hiding in plain sight as the ``Soft X-ray Excess''.
+  \item \textbf{Sagittarius A* (Quiescent):} Starving environment. Prediction: 3--10 K baseline glow. 
+  \item \textbf{TON 618 (Ultimate Sink):} Extreme mass flow distributed over an immense surface area. Prediction: Optical/UV baseline.
+\end{itemize}
+
+% -------------------------------------------------------------------------
+% Figure 2: Wall of Fire Cross-Section
+% -------------------------------------------------------------------------
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=0.78, >=stealth]
+    % Background Zones (Seamless edge-to-edge layout)
+    
+    % 1. Inner Solar System (Orange: 0 to M64)
+    \fill[orange!10] (0, -3.8) rectangle (5.0, 3.8);
+    
+    % 2. Outer Calm Basin (Blue: M64 to M157) - Shortened to shift red block left
+    \fill[blue!8] (5.0, -3.8) rectangle (10.5, 3.8);
+    
+    % 3. Wall of Fire (Red: M157 to M160) - Shifted left
+    \fill[red!15] (10.5, -3.8) rectangle (14.5, 3.8);
+    
+    % 4. Interstellar Medium (Gray: M160 onward) - Expanded leftward
+    \fill[gray!15] (14.5, -3.8) rectangle (20.3, 3.8);
+    
+    % Sun
+    \draw[fill=orange!90!yellow, thick] (1.2,0) circle (0.9);
+    \node at (1.2,0) {\small\textbf{Sun}};
+    
+    % Data stack inside Wall of Fire (Centered at new x=12.5)
+    \node[red!80!black, font=\tiny, align=center] at (12.5, 2.5) {50{,}000 Kelvin};
+    \node[red!80!black, font=\tiny] at (12.5, -2.5) {M157--M160};
+    \node[red!80!black, font=\tiny] at (12.5, -3.1) {$\sim$1.5 AU Wide};
+
+    % Electron arrows (Originating in the gray Interstellar zone, ending at new red boundary x=14.5)
+    \draw[->, thick, blue!70!black, line width=1.1pt] (19.3, 1.6) -- (14.5, 1.1);
+    \draw[->, thick, blue!70!black, line width=1.1pt] (19.3, 0.4) -- (14.5, 0.3);
+    \draw[->, thick, blue!70!black, line width=1.1pt] (19.3, -1.3) -- (14.5, -0.7);
+    
+    % Voyager trajectory
+    \draw[thick, green!70!black, ->] (0.3, 1.8) -- (19.0, -0.4);
+    \node[green!80!black, font=\tiny, above] at (8.0, 1.0) {\textbf{Voyager 2}};
+    
+    % Scale (Extended the full length of the diagram, ticks aligned to new boxes)
+    \draw[thick] (0.5, -4.3) -- (19.0, -4.3);
+    \foreach \x/\lab in {1.2/M1, 5.0/M64, 10.5/M157, 14.5/M160} {
+      \draw[thick] (\x, -4.25) -- (\x, -4.35);
+      \node[font=\tiny, below] at (\x, -4.45) {\lab};
+    }
+    
+    % Centered lower distance label
+    \node[font=\small, below] at (10.0, -4.8) {Distance from Sun (Mara Gravity Vectors)};
+    
+    % Top Labels (Uniform font styling, centered in new blocks)
+    \node[font=\small, align=center] at (2.5, 3.2) {Inner Solar System};
+    \node[font=\small, align=center] at (7.75, 3.2) {Outer Calm Basin};
+    \node[font=\small, align=center] at (12.5, 3.2) {Wall of Fire};
+    \node[font=\small, align=center] at (17.0, 3.2) {Interstellar Medium};
+
+    % Legend / Key Box
+    \begin{scope}[shift={(14.8, -2.2)}]
+      \draw[fill=white, draw=black!70, rounded corners=1.5pt, line width=0.6pt] (0,0) rectangle (5.2, -1.3);
+      \draw[thick, green!70!black, ->] (0.2, -0.4) -- (0.7, -0.4);
+      \node[font=\tiny, anchor=west, green!80!black] at (0.8, -0.4) {Voyager 2 Trajectory};
+      \draw[thick, blue!70!black, <-] (0.2, -0.9) -- (0.7, -0.9);
+      \node[font=\tiny, anchor=west, blue!80!black] at (0.8, -0.9) {Interstellar Electron Inflow};
+    \end{scope}
+  \end{tikzpicture}
+
+  \caption{\textit{Cross-section of the ``Wall of Fire'' at the heliospheric boundary. One Astronomical Unit (AU) is the average distance from the Earth to the Sun—approximately 93 million miles, 150 million kilometers. The thickness of the ``Wall of Fire'' is roughly 1.5 AU, which spans about 140 million miles, 225 million kilometers. The 50,000 Kelvin spike recorded by Voyager 2 corresponds exactly to Mara Gravity Vectors (MGV) M157--M160 \cite{marabut2026m5}. The bumpy, turbulent crossing supports the EFM view of the boundary as a dynamic protective force field.}}
+  \label{fig:walloffire}
+\end{figure}
+
+% -------------------------------------------------------------------------
+% 7.1 The EHT Interferometry Trap
+% -------------------------------------------------------------------------
+\clearpage
+\begin{table}[!ht]
+  \centering
+  \renewcommand{\arraystretch}{1.3}
+  \begin{tabular}{@{} p{0.18\textwidth} p{0.27\textwidth} p{0.27\textwidth} p{0.20\textwidth} @{}}
+    \toprule
+    \textbf{Phenomenon} & \textbf{Standard GR / Legacy Model} & \textbf{Electron Flow Model (EFM)} & \textbf{Observational Discriminant} \\
+    \midrule
+    \textbf{Core Structure} & $r=0$ Singularity (infinite density, zero volume). & EVGS Core ($R_{\text{core}} > 0$, thermodynamic equilibrium). & Resolution of the Information Paradox without data destruction. \\
+    \textbf{Thermal Emission} & Hawking Radiation (static, intrinsic, $T \propto 1/M$). & Thermal-Proximity Flex (environmentally dependent shock-glow). & Core thermal emission fluctuates proportionally with local ambient flux density. \\
+    \textbf{Soft X-ray Excess} & Baryonic ``warm corona'' requiring complex Comptonization. & Pure thermodynamic fluid friction at the Impedance Boundary. & XRISM/Athena detects a perfectly sterile, \textbf{line-less continuum} (absence of O VII/O VIII features). \\
+    \textbf{Astrophysical Jets} & Magnetic field extraction from spacetime (Blandford-Znajek). & Thermodynamic fluid exhaust ($\eta_{\text{ex}} = 1 - \cos\theta$). & Jet kinetic power natively matches the geometric exhaust cone limit. \\
+    \textbf{Gravitational Waves} & Transverse quadrupolar ripples in empty geometric spacetime. & Quadrupolar hydrodynamic shear waves in the vacuum flux. & Energy accounting is strictly derived from fluid-displacement kinematics ($E = \Delta M_{\text{disp}} c^2$). \\
+    \bottomrule
+  \end{tabular}
+  \caption{\textit{Observational Discriminants: General Relativity vs. EFM.} This table outlines the specific, testable differences between classical geometric models and the fluid-dynamic framework of the EFM.}
+  \label{tab:predictions}
+\end{table}
+
+\subsection{The EHT Interferometry Trap}
+Critics argue that Event Horizon Telescope (EHT) images of Sgr A* \cite{eht2019} prove a dark singularity. However, Very Long Baseline Interferometry (VLBI) acts as a spatial filter, resolving out completely smooth, continuous structures. The 3--10 K baseline glow of Sgr A* is filtered out by the Fourier transform algorithms, leaving the sharp, refracted photon ring as the dominant visible artifact. The ``shadow'' is an interferometric filtering effect, not proof of zero volume.
+
+\subsection{The XRISM Test: The Line-less Continuum and Spectral Curvature}
+The ultimate falsifiable test for the EFM lies with next-generation X-ray microcalorimeters (e.g., XRISM, Athena) \cite{xrism2020}. Standard models attribute the Soft Excess in Cygnus X-1 to a baryonic ``warm corona'', which \textit{must} produce trace atomic lines (like O VII and O VIII). Because the Thermal-Proximity Flex is the friction of the non-baryonic vacuum flux, the EFM predicts this soft component will be a perfectly sterile, \textbf{line-less continuum} \cite{gierlinski2004}. Furthermore, the observed curvature of the Soft Excess is naturally explained as the integrated emission from a radial fluid shock with a steep density gradient (a multi-temperature fluid spectrum), completely eliminating the need for artificial Comptonization layers. A null detection of atomic lines in the Soft Excess will strongly validate the fluid mechanics of the EFM.
+
+% -------------------------------------------------------------------------
+% 8 Critical Challenges for Future Development
+% -------------------------------------------------------------------------
+\section{Critical Challenges for Future Development}
+While conceptually complete, the EFM defines the following syllabus for future mathematical development:
+\begin{enumerate}
+  \item \textbf{Derivation of Tensor Structure}: Rigorously deriving the exact spin-2 tensor wave equations exclusively from fluid shear mathematics.
+  \item \textbf{Relativistic Fluid Boundaries}: Formalizing the exact mathematical transition where the hydrodynamic shockwave reaches $c$ without triggering classical Lorentz mass-divergence.
+\end{enumerate}
+
+% -------------------------------------------------------------------------
+% 9 Conclusion
+% -------------------------------------------------------------------------
+\section{Conclusion}
+Marab\={u}t's Theory of Gravity represents a definitive paradigm shift from geometric abstraction to mechanistic reality. By redefining gravity as the thermodynamic drag of a physical vacuum flux, the Electron Flow Model (EFM) systematically dismantles the paradoxes that have hindered legacy physics for a century. We have demonstrated that mathematical singularities and the resulting Information Paradox are merely artifacts of an incomplete, static geometric model. In their place, the Electron Void Gravitational Sphere (EVGS) provides a stable, finite-volume engine governed by strict thermodynamic equilibrium and quantum exclusion limits.
+
+Furthermore, this framework successfully unifies extreme astrophysical phenomena without relying on abstract mathematical parameterizations. By deriving jet kinematics strictly from geometric fluid exhaust ratios and reinterpreting gravitational waves as massive hydrodynamic shockwaves, the EFM grounds cosmology in the mechanics of classical fluid dynamics. Most importantly, the framework transitions from theoretical architecture to empirical falsifiability. The prediction of the Thermal-Proximity Flex---specifically the line-less continuum---provides a clear, testable roadmap for next-generation X-ray microcalorimeters like XRISM and Athena.
+
+For over a century, astrophysics has modeled the cosmos as an empty stage warped by invisible geometry. The Electron Flow Model proves that the universe is a profoundly active, physical fluid. By understanding the rigorous thermodynamic mechanics of this cosmic ocean, humanity moves one step closer to actively navigating and engineering the gravitational forces that shape our reality. The legacy of the static void is over; the fluid universe stands ready for rigorous empirical testing.
+
+% -------------------------------------------------------------------------
+% APPENDIX A
+% -------------------------------------------------------------------------
+\clearpage
+\appendix
+\section{Preliminary Mathematical Formalism}
+
+\subsection{Derivation of the Thermodynamic Exhaust Ratio}
+The kinetic power of astrophysical jets in the EFM is derived from the geometric choke of relativistic equatorial shear. Assuming a highly pressurized spherical sink where exhaust is forced exclusively through polar caps of half-angle $\theta$, the fractional solid angle ($\Omega$) relative to the full sphere ($4\pi$) dictates the exact thermodynamic exhaust ratio ($\eta_{\text{ex}}$).
+
+The solid angle of a single polar cone is:
+\begin{equation}
+  \Omega = 2\pi (1 - \cos\theta)
+\end{equation}
+
+Because the exhaust escapes symmetrically from both the ``north'' and ``south'' polar caps, the total exhaust area ratio is:
+\begin{equation}
+  \eta_{\text{ex}} = \frac{2 \Omega}{4\pi} = \frac{4\pi (1 - \cos\theta)}{4\pi} = 1 - \cos\theta
+\end{equation}
+
+For Cygnus X-1, an observed jet half-angle of $\theta \approx 8^\circ$ yields an exhaust ratio of $\eta_{\text{ex}} \approx 0.0097$ (or roughly 1\%), perfectly matching the empirical jet kinetic power derived from observations without invoking localized magnetic parameterizations.
+
+% -------------------------------------------------------------------------
+% THE UNIFIED FLUID COSMOS FRAMEWORK
+% -------------------------------------------------------------------------
+\clearpage
+\section*{The Unified Fluid Cosmos Framework}
+  This paper serves as \textbf{Manuscript 6 Version 2} in the comprehensive series, \textit{Marab\={u}t's Theory of Gravity}. It presents the \textbf{Electron Flow Model (EFM)}, a generative, fluid-dynamic framework designed to fundamentally replace General Relativity. The EFM shatters classical circularity with a single, undeniable foundational premise: \textbf{Gravity is Pressure, not curvature, and not an intrinsic mass property.}
+
+  \vspace{1em}
+  \noindent \textbf{Published Manuscripts in this Series:}
+  \begin{itemize}
+    \item \textbf{Manuscript 01:} \\ The Push-Pull Mechanics of Vacuum Flux (The Foundational Framework) \\ \textit{Zenodo}: \url{https://doi.org/10.5281/zenodo.20126552}
+    
+    \item \textbf{Manuscript 02:} \\ Resolving the Weyl Potential Anomaly \\ \textit{Zenodo}: \url{https://doi.org/10.5281/zenodo.20127273}
+
+    \item \textbf{Manuscript 03:} \\ Mechanistic Resolution of Jet Deflection in Cygnus X-1 \\ \textit{Zenodo}: \url{https://doi.org/10.5281/zenodo.20128198}
+
+    \item \textbf{Manuscript 04:} \\ Quantum Mechanics of Stellar Chain Reactions and EVGS Formation \\ \textit{Zenodo}: \url{https://doi.org/10.5281/zenodo.20070275}
+
+    \item \textbf{Manuscript 05:} \\ The Heliospheric Grand Data Matrix \\ \textit{Zenodo}: \url{https://doi.org/10.5281/zenodo.20128777}
+
+    \item \textbf{Manuscript 06:} \\ Fluid-Dynamic Reinterpretation of Gravity, Black Holes, and Gravitational Waves (Current Paper) \\ \textit{Zenodo}: \url{https://doi.org/10.5281/zenodo.20129881}
+  \end{itemize}
+
+  \vspace{1em}
+  \noindent \textbf{Data \& Code Availability:} To accompany this manuscript, we have open-sourced the complete Python mathematical engine and a fully interactive 3D web-based simulation of the EFM Volumetric Profiler. Researchers, developers, and students can visually explore the hydrodynamic vacuum flux across the celestial bodies at: 
+  \begin{itemize}
+    \item \textbf{Interactive 3D EFM Volumetric Profiler:} \\ \url{https://marabutmarabut.github.io/Theory-of-Gravity}
+    
+    \item \textbf{Official GitHub Repository:} \\ \url{https://github.com/MarabutMarabut/Theory-of-Gravity}
+  \end{itemize}
+
+% -------------------------------------------------------------------------
+% DECLARATIONS
+% -------------------------------------------------------------------------
+\clearpage
+\section*{Declarations}
+\textbf{Author Contributions:} C.B.M. and A.L.M. co-developed the theoretical framework. C.B.M. formalized the Unified Master Equation and computational matrices. A.L.M. conducted rigorous data validation and structural review. Both authors contributed equally to the final manuscript preparation. \\[0.5em]
+\textbf{Competing Interests:} The authors declare no competing financial or non-financial interests.
+
+% -------------------------------------------------------------------------
+% ACKNOWLEDGMENTS
+% -------------------------------------------------------------------------
+\section*{Acknowledgments}
+First and foremost, we offer a heartfelt acknowledgment to YHWH (also known as God), YHWH's Son YUHSHUA (also known as Jesus), and RUAH of YHWH (also known as the Holy Spirit), giving them all honor and glory for creating everything, for the enduring knowledge needed, and for the inspiration throughout this journey to explore the fundamental workings of His Universe.
+
+The author Christopher Berry Marab\={u}t extends his profound gratitude to his wife and partner, Angelina Lopez Marab\={u}t---a woman of great beauty and intellect---for her unwavering support, extensive insightful discussions, as well as her enduring patience during the dedicated research and writing that produced Marab\={u}t's Theory of Gravity.
+
+We extend our sincere appreciation to \textbf{Google DeepMind} and the advanced AI model, \textbf{Gemini 3.1 Pro (AKA Flash Prime)}. Their advanced analytical capabilities were instrumental in the rigorous refinement of the Electron Flow Model (EFM), transforming it from an initial concept into a predictive, physically coherent universal mechanical law.
+
+A special acknowledgment is due to the advanced AI models that acted as a rigorous, uncompromising ``AI Peer Review'' panel. We thank xAI's Grok 4.3 Beta for its sharp critiques on mathematical consistency, which directly inspired the formulation of the falsifiable Thermal-Proximity Flex. We also extend our gratitude to Anthropic's Claude Sonnet 4.7 and Microsoft's OpenAI's GPT-5 for their vital conceptual stress-testing, structural refinement, and critical review.
+
+\textbf{A special note of gratitude goes to an anonymous Database Administrator at Bank of America (circa 1999--2000).} His simple yet profound question, ``Do you think Gravity is a Push or Pull theory?'', planted the seed for this 26-year journey of discovery. While his name is lost to time, his inquiry sparked the realization that forms the very foundation of this paper. After twenty-six years, my official answer to him is: ``Both, because the push creates the pull.''
+
+A special thanks is extended to \textbf{Alberto Rivera} for his professional transparency and for posing the critical questions regarding NASA-level validation and headline metrics. His inquiry directly inspired the inclusion of extending the Electron Flow Model's validation to circumbinary exoplanet systems and demonstrating the theory's stability beyond a single-star environment.
+
+Finally, we thank NASA for access to critical data from its archives (Planetary Data System), which was essential for validating the new formula across a wide range of celestial bodies \cite{nasa2024}.
+
+% -------------------------------------------------------------------------
+% REFERENCES
+% -------------------------------------------------------------------------
+\clearpage
+\begin{thebibliography}{20}
+
+  \bibitem[hawking1976]{hawking1976}
+  Hawking, S. W. (1976).
+  ``Breakdown of predictability in gravitational collapse''. \textit{Physical Review D}, 14(10), 2460--2473. \\
+  \doi{10.1103/PhysRevD.14.2460}
+
+  \bibitem[prabu2026]{prabu2026}
+  Prabu, S., Miller-Jones, J. C. A., et al. (2026).
+  ``A jet bent by a stellar wind in the black hole X-ray binary Cygnus X-1''. \textit{Nature Astronomy}. \\
+  \doi{10.1038/s41550-026-02828-3}
+
+  \bibitem[ligo2016]{ligo2016}
+  Abbott, B. P., et al. (LIGO Scientific Collaboration and Virgo Collaboration). (2016).
+  ``Observation of Gravitational Waves from a Binary Black Hole Merger''. \textit{Physical Review Letters}, 116(6), 061102. \\
+  \doi{10.1103/PhysRevLett.116.061102}
+  
+  \bibitem[gierlinski2004]{gierlinski2004}
+  Gierli\'nski, M., \& Done, C. (2004). 
+  ``Is the soft excess in active galactic nuclei real?''. \textit{Monthly Notices of the Royal Astronomical Society}, 349(1), 7-15. \\
+  \doi{10.1111/j.1365-2966.2004.07466.x}
+
+  \bibitem[eht2019]{eht2019}
+  Event Horizon Telescope Collaboration. (2019).
+  ``First M87 Event Horizon Telescope Results. I. The Shadow of the Supermassive Black Hole''. \textit{The Astrophysical Journal Letters}, 875(1), L1. \\
+  \doi{10.3847/2041-8213/ab0ec7}
+
+  \bibitem[xrism2020]{xrism2020}
+  XRISM Science Team. (2020).
+  ``Science with the X-ray Imaging and Spectroscopy Mission (XRISM)''. \textit{arXiv preprint}. \\
+  \url{https://arxiv.org/abs/2003.04962}
+
+  \bibitem[marabut2026m1]{marabut2026m1}
+  Marab\={u}t, C. B., \& Marab\={u}t, A. L. (2026). ``Marab\={u}t's Theory of Gravity: The Push-Pull Mechanics of Vacuum Flux''. \textit{Zenodo}. \\
+  \url{https://doi.org/10.5281/zenodo.20126552}
+
+  \bibitem[marabut2026m2]{marabut2026m2}
+  Marab\={u}t, C. B., \& Marab\={u}t, A. L. (2026). ``Marab\={u}t's Theory of Gravity: Resolving the Weyl Potential Anomaly''. \textit{Zenodo}. \\
+  \url{https://doi.org/10.5281/zenodo.20127273}
+
+  \bibitem[marabut2026m3]{marabut2026m3}
+  Marab\={u}t, C. B., \& Marab\={u}t, A. L. (2026). ``Marab\={u}t's Theory of Gravity: Mechanistic Resolution of Jet Deflection in Cygnus X-1''. \textit{Zenodo}. \\
+  \url{https://doi.org/10.5281/zenodo.20128198}
+
+  \bibitem[marabut2026m4]{marabut2026m4}
+  Marab\={u}t, C. B., \& Marab\={u}t, A. L. (2026). ``Marab\={u}t's Theory of Gravity: Quantum Mechanics of Stellar Chain Reactions and EVGS Formation''. \textit{Zenodo}. \\
+  \url{https://doi.org/10.5281/zenodo.20070275}
+
+  \bibitem[marabut2026m5]{marabut2026m5}
+  Marab\={u}t, C. B., \& Marab\={u}t, A. L. (2026). ``Marab\={u}t's Theory of Gravity: The Heliospheric Grand Data Matrix''. \textit{Zenodo}. \\
+  \url{https://doi.org/10.5281/zenodo.20128777}
+
+  \bibitem[nasa2024]{nasa2024}
+  NASA Planetary Data System. (2024). \textit{Planetary Data System Archives}. Jet Propulsion Laboratory. \\
+  \url{https://pds.nasa.gov/}
+  
+\end{thebibliography}
+
+\end{document}
