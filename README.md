@@ -90,11 +90,11 @@ For the officially published, timestamped, and archived versions, our papers are
 
 ## 👥 About the Authors
 
-**Christopher Berry Marabūt** [](https://orcid.org/0009-0001-9759-9587)
+**Christopher Berry Marabūt** [![ORCID](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0009-0001-9759-9587) | ✉️ [chris.marabut@nestlink.com](mailto:chris.marabut@nestlink.com)
 
 Is an Associate Director of Infrastructure and Cloud Architecture at Kyndryl Holdings, Inc., an independent theoretical physicist, and a prolific songwriter with a catalog of over 100 original tracks. Holding elite credentials as a Microsoft Certified Azure Solution Architect Expert and fluent in over 14 programming languages, he leverages advanced architectural logic to investigate fundamental cosmological mechanisms. Driven by the ultimate question of *how* gravity mechanically works, he is authoring the 30-paper series *Marabūt's Theory of Gravity* and developed the Unified Master Equation—a framework capable of calculating gravity continuously from the crushing core of an ultramassive EVGS all the way down to the superluminal acoustic tethers of entangled quantum particles.
 
-**Angelina Lopez Marabūt** [](https://orcid.org/0009-0007-9937-6145)
+**Angelina Lopez Marabūt** [![ORCID](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png)](https://orcid.org/0009-0007-9937-6145) | ✉️ [angelina.marabut@nestlink.com](mailto:angelina.marabut@nestlink.com)
 
 Is an independent researcher specializing in technical communication and English Language Teaching (ELT). As the co-author and strategic partner of the Electron Flow Model, Angelina plays a vital role in bridging the critical gap between complex theoretical physics and public understanding. Her primary contribution lies in deconstructing dense mathematical frameworks—such as hydrodynamic fluid pressure and the Unified Master Equation—and translating them into clear, highly accessible scientific communication, ensuring that profound scientific truths are democratized and available to everyone.
 
